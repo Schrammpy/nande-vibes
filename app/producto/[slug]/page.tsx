@@ -79,23 +79,26 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 </p>
                 <div className="flex gap-4">
                     {producto.variantes.map((variante) => (
-                        <button
-                            key={variante.color}
-                            onClick={() => setColorSeleccionado(variante)}
-                            className={`w-12 h-12 rounded-full border-2 transition-all flex items-center justify-center
-                                ${colorSeleccionado.color === variante.color 
-                                    ? 'border-orange-500 scale-110' 
-                                    : 'border-transparent hover:scale-105'
-                                }`}
-                            style={{ backgroundColor: variante.hex }} // Pinta el botón con el color real
-                            title={variante.color}
-                        >
-                            {/* Si es blanco, le ponemos un borde gris para que se vea */}
-                            {variante.color === "Blanco" && (
-                                <div className="w-full h-full rounded-full border border-gray-300 opacity-20"></div>
-                            )}
-                        </button>
-                    ))}
+                    <button
+                      key={variante.color}
+                      onClick={() => setColorSeleccionado(variante)}
+                      className={`w-12 h-12 rounded-full border-2 transition-all flex items-center justify-center
+                      ${colorSeleccionado.color === variante.color 
+                      ? 'border-orange-500 scale-110' // Si está seleccionado, borde naranja
+                      : 'border-transparent hover:scale-105' // Si no, transparente
+                      }
+                      /* SOLUCIÓN: Si es negro, le forzamos un borde grisecito siempre */
+                      ${variante.color === "Negro" ? "ring-1 ring-gray-600" : ""}
+                      `}
+                        style={{ backgroundColor: variante.hex }}
+                        title={variante.color}
+                          >
+                        {/* Esto ya lo tenías para el blanco, lo dejamos igual */}
+                        {variante.color === "Blanco" && (
+                        <div className="w-full h-full rounded-full border border-gray-300 opacity-20"></div>
+                        )}
+                    </button>
+                  ))}<br></br>  
                 </div>
             </div>
           )}
