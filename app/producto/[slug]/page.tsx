@@ -4,6 +4,7 @@ import Image from "next/image";
 import { productos } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { useState, use } from "react"; 
+import { ProductImageZoom } from "@/app/components/ProductImageZoom";
 
 export default function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -14,23 +15,34 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
     notFound();
   }
 
-  // ESTADO 1: Talle (por defecto M)
+  // Verificar variantes
+  const tieneVariantes = producto.variantes && producto.variantes.length > 0;
+
+  // ESTADO 1: Talle
   const [talle, setTalle] = useState("M");
 
-  // ESTADO 2: Color (Iniciamos con el primero de la lista, o null si no tiene variantes)
-  // Si tiene variantes, usamos la primera. Si no, usamos un objeto "dummy" con la imagen principal.
-  const [colorSeleccionado, setColorSeleccionado] = useState(
-    producto.variantes ? producto.variantes[0] : { color: "Único", imagen: producto.imagen }
+  // ESTADO 2: Variante de Color Completa
+  const [varianteSeleccionada, setVarianteSeleccionada] = useState(
+    tieneVariantes 
+      ? producto.variantes![0] 
+      : { color: "Único", hex: "", imagenes: [producto.imagen] } // Fallback si no hay variantes
   );
 
-  // Lógica de WhatsApp (Ahora incluye el COLOR)
+  // ESTADO 3: La imagen que se ve ACTUALMENTE en grande
+  const [imagenActual, setImagenActual] = useState(varianteSeleccionada.imagenes[0]);
+
+  // Función para cambiar de color y resetear la foto al frente
+  const cambiarColor = (nuevaVariante: any) => {
+    setVarianteSeleccionada(nuevaVariante);
+    setImagenActual(nuevaVariante.imagenes[0]); // Volver a mostrar el frente al cambiar color
+  };
+
   const handleComprar = () => {
     const telefono = "595981000000"; 
     const mensaje = `Hola Ñande Vibes! 👋 Quiero la *${producto.nombre}*.
     \n📏 Talle: *${talle}*
-    \n🎨 Color: *${colorSeleccionado.color}*
+    \n🎨 Color: *${varianteSeleccionada.color}*
     \n💰 Precio: Gs. ${producto.precio.toLocaleString()}`;
-    
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   };
@@ -39,20 +51,39 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
     <main className="min-h-screen bg-black text-white flex items-center justify-center p-4 py-24">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         
-        {/* COLUMNA IZQUIERDA: FOTO DINÁMICA */}
-        <div className="sticky top-24"> {/* Sticky para que la foto te siga al bajar */}
-            <div className="relative aspect-square rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
-            {/* key={colorSeleccionado.imagen} sirve para que React haga una animación cuando cambia la foto */}
-            <Image
-                key={colorSeleccionado.imagen} 
-                src={colorSeleccionado.imagen}
-                alt={`${producto.nombre} - ${colorSeleccionado.color}`}
-                fill
-                className="object-cover transition-opacity duration-500 opacity-0 animate-fadeIn" // Pequeño efecto fade
-                onLoadingComplete={(image) => image.classList.remove("opacity-0")} // Truco para que no parpadee feo
-                priority
-            />
-            </div>
+        {/* COLUMNA IZQUIERDA: GALERÍA */}
+<div className="sticky top-24 flex flex-col gap-4"> 
+    
+    {/* FOTO GRANDE CON ZOOM */}
+<div className="relative aspect-square rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
+    
+    {/* Borramos el div con opacity-0 y ponemos el componente directo */}
+    {/* Usamos 'key' aquí para que si cambiás de foto, el zoom se reinicie */}
+    <ProductImageZoom 
+        key={imagenActual} 
+        src={imagenActual} 
+        alt={producto.nombre} 
+    />
+    
+</div>
+
+            {/* MINIATURAS (Solo si hay más de 1 foto) */}
+            {varianteSeleccionada.imagenes.length > 1 && (
+                <div className="flex gap-4 overflow-x-auto pb-2">
+                    {varianteSeleccionada.imagenes.map((img: string, index: number) => (
+                        <button
+                            key={index}
+                            onClick={() => setImagenActual(img)}
+                            className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all
+                                ${imagenActual === img 
+                                    ? 'border-orange-500 opacity-100' 
+                                    : 'border-transparent opacity-50 hover:opacity-100'}`}
+                        >
+                            <Image src={img} alt="Vista" fill className="object-cover" />
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
 
         {/* COLUMNA DERECHA: INFO */}
@@ -67,38 +98,35 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
           </div>
 
           <p className="text-gray-400 leading-relaxed text-lg">
-            Diseño exclusivo de la colección 2026. Algodón 100% premium peinado. 
-            Estampado DTF de alta definición que no se cuartea.
+            Diseño exclusivo de la colección 2026. Algodón 100% premium.
           </p>
 
-          {/* SELECTOR DE COLOR (Solo aparece si hay variantes) */}
-          {producto.variantes && (
+          {/* SELECTOR DE COLOR */}
+          {tieneVariantes && (
             <div>
                 <p className="text-sm font-bold text-gray-500 mb-3 uppercase tracking-wider">
-                    Color: <span className="text-white">{colorSeleccionado.color}</span>
+                    Color: <span className="text-white">{varianteSeleccionada.color}</span>
                 </p>
                 <div className="flex gap-4">
-                    {producto.variantes.map((variante) => (
-                    <button
-                      key={variante.color}
-                      onClick={() => setColorSeleccionado(variante)}
-                      className={`w-12 h-12 rounded-full border-2 transition-all flex items-center justify-center
-                      ${colorSeleccionado.color === variante.color 
-                      ? 'border-orange-500 scale-110' // Si está seleccionado, borde naranja
-                      : 'border-transparent hover:scale-105' // Si no, transparente
-                      }
-                      /* SOLUCIÓN: Si es negro, le forzamos un borde grisecito siempre */
-                      ${variante.color === "Negro" ? "ring-1 ring-gray-600" : ""}
-                      `}
-                        style={{ backgroundColor: variante.hex }}
-                        title={variante.color}
-                          >
-                        {/* Esto ya lo tenías para el blanco, lo dejamos igual */}
-                        {variante.color === "Blanco" && (
-                        <div className="w-full h-full rounded-full border border-gray-300 opacity-20"></div>
-                        )}
-                    </button>
-                  ))}<br></br>  
+                    {producto.variantes!.map((variante) => (
+                        <button
+                            key={variante.color}
+                            onClick={() => cambiarColor(variante)}
+                            className={`w-12 h-12 rounded-full border-2 transition-all flex items-center justify-center
+                                ${varianteSeleccionada.color === variante.color 
+                                    ? 'border-orange-500 scale-110' 
+                                    : 'border-transparent hover:scale-105'
+                                }
+                                ${variante.color === "Negro" ? "ring-1 ring-gray-600" : ""}
+                            `}
+                            style={{ backgroundColor: variante.hex }}
+                            title={variante.color}
+                        >
+                             {variante.color === "Blanco" && (
+                                <div className="w-full h-full rounded-full border border-gray-300 opacity-20"></div>
+                            )}
+                        </button>
+                    ))}
                 </div>
             </div>
           )}
@@ -120,16 +148,13 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 </button>
               ))}
             </div>
-            <p className="text-xs text-gray-500 mt-2 hover:text-orange-400 cursor-pointer underline">Ver tabla de medidas</p>
           </div>
 
-          {/* BOTÓN DE COMPRA */}
           <button
             onClick={handleComprar}
             className="mt-4 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-5 rounded-xl text-xl transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-green-900/40 transform active:scale-95"
           >
             <span>Pedir por WhatsApp</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </button>
           
         </div>
