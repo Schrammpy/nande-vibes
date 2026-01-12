@@ -52,7 +52,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         
         {/* COLUMNA IZQUIERDA: GALERÍA */}
-<div className="sticky top-24 flex flex-col gap-4"> 
+<div className="md:sticky md:top-24 flex flex-col gap-4"> 
     
     {/* FOTO GRANDE CON ZOOM */}
 <div className="relative aspect-square rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">

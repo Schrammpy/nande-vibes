@@ -41,7 +41,7 @@ export default function Home() {
               href="#catalogo" 
               className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105"
             >
-              Ver los Drops
+              Ver las Colecciones
               <ArrowDown size={20} />
             </Link>
           </div>
@@ -51,14 +51,14 @@ export default function Home() {
       {/* --- CONTENEDOR DE COLECCIONES --- */}
       <div id="catalogo" className="flex flex-col gap-12 py-24">
         
-        {/* SECCIÓN 1: HYPE FEBRERO */}
-        <ProductSection title="⚡ HYPE Febrero" products={hypeProducts} />
+        {/* SECCIÓN 1: HYPE */}
+        <ProductSection title="⚡ HYPE Febrero" products={hypeProducts} categorySlug="hype" />
 
         {/* SECCIÓN 2: RAICES */}
-        <ProductSection title="🌿 RAÍCES" products={raicesProducts} />
+        <ProductSection title="🌿 RAÍCES" products={raicesProducts} categorySlug="raices" />
 
         {/* SECCIÓN 3: ICONOS */}
-        <ProductSection title="🏛️ ICONOS" products={iconosProducts} />
+        <ProductSection title="🏛️ ICONOS" products={iconosProducts} categorySlug="iconos" />
 
       </div>
     </main>
@@ -67,8 +67,10 @@ export default function Home() {
 
 // --- COMPONENTE INTERNO PARA NO REPETIR CÓDIGO ---
 // (Esto hace que tu código sea más limpio y fácil de mantener)
-function ProductSection({ title, products }: { title: string, products: any[] }) {
-  if (products.length === 0) return null; // Si no hay productos, no muestra la sección
+
+// --- COMPONENTE INTERNO CORREGIDO ---
+function ProductSection({ title, products, categorySlug }: { title: string, products: any[], categorySlug: string }) {
+  if (products.length === 0) return null;
 
   return (
     <section className="max-w-7xl mx-auto px-4 w-full">
@@ -76,7 +78,11 @@ function ProductSection({ title, products }: { title: string, products: any[] })
         <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
           {title}
         </h2>
-        <Link href="#" className="text-sm text-gray-400 hover:text-white transition hidden md:block">
+        
+        <Link 
+          href={`/coleccion/${categorySlug}`} 
+          className="text-sm text-gray-400 hover:text-white transition hidden md:block"
+        >
           Ver todos →
         </Link>
       </div>

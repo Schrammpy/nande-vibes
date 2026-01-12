@@ -51,8 +51,8 @@ export function Footer() {
       </div>
       
       <div className="border-t border-gray-900 mt-12 pt-8 text-center text-xs text-gray-600 flex flex-col items-center gap-2">
-        <p>© 2026 Ñande Vibes. Asunción, Paraguay.</p>
-        <p className="flex items-center gap-1">Creado con <Heart size={12} className="text-red-600 fill-red-600"/> por un dev paraguayo.</p>
+        <p>© 2026 Ñande Vibes. Luque, Paraguay.</p>
+        <p className="flex items-center gap-1">Creado por My Docs Studio.</p>
       </div>
     </footer>
   );
