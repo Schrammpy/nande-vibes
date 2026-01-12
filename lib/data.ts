@@ -201,6 +201,31 @@ export const productos = [
       }
     ]
   },
+  {
+    id: 13,
+    nombre: "Remera 'El Pitogue'",
+    precio: 120000,
+    categoria: "raices",
+    imagen: "/productos/raices/pitogue1.png",
+    slug: "remera-pitogue",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/pitogue1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        
+        imagenes: [
+            "/productos/raices/pitogue2.png"
+        ]
+      }
+    ]
+  },
 
   // --- COLECCIÓN: ICONOS ---
   {
