@@ -4,7 +4,9 @@ import Image from "next/image";
 import { productos } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { useState, use } from "react"; 
+import { Ruler, ChevronDown, ChevronUp } from "lucide-react"; 
 import { ProductImageZoom } from "@/app/components/ProductImageZoom";
+
 
 export default function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -30,6 +32,9 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
   // ESTADO 3: La imagen que se ve ACTUALMENTE en grande
   const [imagenActual, setImagenActual] = useState(varianteSeleccionada.imagenes[0]);
+
+  const [mostrarGuia, setMostrarGuia] = useState(false);
+
 
   // Función para cambiar de color y resetear la foto al frente
   const cambiarColor = (nuevaVariante: any) => {
@@ -149,11 +154,58 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               ))}
             </div>
           </div>
+              {/* --- INICIO GUÍA DE TALLES DESPLEGABLE --- */}
+          <div className="border-t border-b border-gray-800 py-4">
+            <button 
+              onClick={() => setMostrarGuia(!mostrarGuia)}
+              className="w-full flex items-center justify-between text-gray-300 hover:text-white transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <Ruler size={18} className="text-orange-500"/>
+                <span className="text-sm font-bold uppercase tracking-wider">Guía de Medidas</span>
+              </div>
+              {mostrarGuia ? <ChevronUp size={18}/> : <ChevronDown size={18}/>}
+            </button>
 
+            {/* LA TABLA (Solo se muestra si mostrarGuia es true) */}
+            {mostrarGuia && (
+              <div className="mt-4 animate-fadeIn">
+                <div className="bg-gray-900 rounded-lg p-4 text-xs md:text-sm border border-gray-800">
+                  <p className="text-gray-500 mb-3 italic">
+                    * Medidas en centímetros.
+                  </p>
+                  
+                  <div className="grid grid-cols-3 gap-4 border-b border-gray-700 pb-2 mb-2 font-bold text-gray-300">
+                    <div>TALLE</div>
+                    <div>ANCHO (A)</div>
+                    <div>LARGO (B)</div>
+                  </div>
+
+                  {/* FILAS DE LA TABLA */}
+                  <div className="space-y-2 text-gray-400 font-mono">
+                    <div className="grid grid-cols-3 gap-4"><span>P (S)</span><span>48 cm</span><span>68 cm</span></div>
+                    <div className="grid grid-cols-3 gap-4"><span>M (M)</span><span>50 cm</span><span>70 cm</span></div>
+                    <div className="grid grid-cols-3 gap-4"><span>G (L)</span><span>54 cm</span><span>74 cm</span></div>
+                    <div className="grid grid-cols-3 gap-4"><span>XG (XL)</span><span>58 cm</span><span>78 cm</span></div>
+                    <div className="grid grid-cols-3 gap-4"><span>XXG (XXL)</span><span>60 cm</span><span>80 cm</span></div>
+                  </div>
+                  
+                  {/* DIBUJITO EXPLICATIVO (Opcional, texto visual) */}
+                  <div className="mt-4 border-t border-gray-800 pt-3 flex justify-center opacity-50">
+                     <span className="text-[10px] text-center">
+                        (A) Axila a Axila <br/> (B) Hombro hasta abajo
+                     </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          {/* --- FIN GUÍA DE TALLES --- */}
           <button
             onClick={handleComprar}
             className="mt-4 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-5 rounded-xl text-xl transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-green-900/40 transform active:scale-95"
           >
+
             <span>Pedir por WhatsApp</span>
           </button>
           

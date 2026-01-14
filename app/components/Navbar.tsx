@@ -15,7 +15,7 @@ export function Navbar() {
         {/* 2. LINKS (Ahora están pegados al logo, separados por el mr-12 de arriba) */}
         <div className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
           <Link href="/" className="hover:text-white transition">Inicio</Link>
-          <Link href="/#tienda" className="hover:text-white transition">Colección 2026</Link>
+          <Link href="/#catalogo" className="hover:text-white transition">Colección 2026</Link>
           <Link href="/historia" className="hover:text-white transition">Sobre Nosotros</Link>
         </div>
 

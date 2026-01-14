@@ -41,7 +41,7 @@ export default function Home() {
               href="#catalogo" 
               className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105"
             >
-              Ver las Colecciones
+              Ver Colecciones
               <ArrowDown size={20} />
             </Link>
           </div>
@@ -60,7 +60,12 @@ export default function Home() {
         {/* SECCIÓN 3: ICONOS */}
         <ProductSection title="🏛️ ICONOS" products={iconosProducts} categorySlug="iconos" />
 
+       
+
       </div>
+
+       {/* AQUÍ AGREGAMOS LA NUEVA SECCIÓN */}
+      <CustomDesignSection />
     </main>
   );
 }
@@ -79,9 +84,10 @@ function ProductSection({ title, products, categorySlug }: { title: string, prod
           {title}
         </h2>
         
+        
         <Link 
           href={`/coleccion/${categorySlug}`} 
-          className="text-sm text-gray-400 hover:text-white transition hidden md:block"
+          className="text-sm text-gray-400 hover:text-white transition whitespace-nowrap"
         >
           Ver todos →
         </Link>
@@ -123,6 +129,76 @@ function ProductSection({ title, products, categorySlug }: { title: string, prod
 
           </Link>
         ))}
+      </div>
+    </section>
+  );
+}
+
+// --- COMPONENTE SECCIÓN PERSONALIZADA ---
+function CustomDesignSection() {
+  return (
+    <section className="w-full py-24 bg-gradient-to-b from-black to-gray-950 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* COLUMNA IZQUIERDA: TEXTO */}
+        <div className="space-y-6 z-10">
+          <span className="bg-orange-500/20 text-orange-500 text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-full border border-orange-500/50">
+            Servicio Exclusivo
+          </span>
+          
+          <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-none">
+            ¿Querés un diseño <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
+              Específico?
+            </span>
+          </h2>
+          
+          <p className="text-xl text-gray-300 font-light max-w-md">
+            Tu mascota, tu grupo de amigos, o esa frase que solo ustedes entienden.
+            <br/><br/>
+            <strong className="text-white">Vos tenés la idea, nosotros la hacemos realidad.</strong>
+          </p>
+
+          <a 
+            href="https://wa.me/595981000000?text=Hola!%20Quiero%20un%20diseño%20personalizado." 
+            target="_blank"
+            className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+          >
+            Escribinos y lo hacemos posible
+            <span className="text-xl">👉</span>
+          </a>
+        </div>
+
+        {/* COLUMNA DERECHA: COLLAGE VISUAL */}
+        <div className="relative h-[400px] w-full mt-10 md:mt-0 flex items-center justify-center">
+          
+          {/* Círculo de fondo para dar atmósfera */}
+          <div className="absolute inset-0 bg-orange-600/20 blur-[100px] rounded-full"></div>
+
+          {/* FOTO 1: La foto real (ej: el perro) - Rotada a la izquierda */}
+          <div className="absolute left-0 md:left-10 top-0 w-48 h-64 bg-gray-800 p-2 shadow-2xl transform -rotate-12 hover:rotate-0 transition-all duration-500 z-10 rounded-lg border border-gray-700">
+             {/* Reemplazá src con una foto de ejemplo real */}
+             <Image src="/productos/custom/micha_original.jpeg" alt="Foto Real" fill className="object-cover rounded" />
+          </div>
+
+          {/* FOTO 2: La remera terminada - Rotada a la derecha */}
+          <div className="absolute right-0 md:right-10 top-10 w-56 h-72 bg-gray-800 p-2 shadow-2xl transform rotate-6 hover:rotate-0 transition-all duration-500 z-20 rounded-lg border border-gray-700">
+             {/* Reemplazá src con una remera tuya */}
+             <Image src="/productos/custom/micha_front.png" alt="Remera Terminada" fill className="object-cover rounded" />
+          </div>
+
+          {/* FOTO 3: Detalle o Sticker - Al centro */}
+          <div className="absolute bottom-0 md:-bottom-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-white p-2 shadow-2xl transform rotate-3 z-30 rounded-lg">
+             <div className="relative w-full h-full border border-gray-200">
+                <Image src="/productos/custom/micha_logo.png" alt="Detalle" fill className="object-cover" />
+             </div>
+             {/* Sticker de 'Personalizado' pegado encima */}
+             <div className="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded rotate-12">
+               CUSTOM
+             </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
