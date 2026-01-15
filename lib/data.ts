@@ -6,6 +6,7 @@ export const productos = [
     id: 1,
     nombre: "Valentine's Day: 'ANADIE' ",
     precio: 120000,
+    precioAntes: '',
     categoria: "hype", // <--- ETIQUETA NUEVA
     imagen: "/productos/hype/back_anadie2.png", // Asegurate que este archivo exista en esa carpeta
     slug: "remera-anadie",
@@ -79,26 +80,21 @@ export const productos = [
   },
   {
     id: 4,
-    nombre: "PENDIENTE UPD",
-    precio: 100,
+    nombre: "Remera UPD 2026",
+    precio: 100000,
     categoria: "hype",
-    imagen: "/productos/hype/back_anadie.png",
-    slug: "remera-trap-asu",
+    imagen: "/productos/hype/upd_front1.png",
+    slug: "remera-upd",
     variantes: [
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/hype/terere_lovev2.png"
-        ]
-      },
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/hype/terere_lovev1.png"
+            "/productos/hype/upd_front1.png",
+            "/productos/hype/upd_front2.png",
+            "/productos/hype/upd_front3.png"
         ]
-      }
+      },
     ]
   },
 

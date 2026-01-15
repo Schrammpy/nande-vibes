@@ -115,15 +115,36 @@ function ProductSection({ title, products, categorySlug }: { title: string, prod
             </div>
 
             {/* Info Producto */}
+            {/* Info Producto */}
             <div className="space-y-1">
               <h3 className="text-lg font-bold text-white group-hover:text-orange-500 transition-colors truncate">
                 {producto.nombre}
               </h3>
-              <div className="flex justify-between items-center">
-                <p className="text-gray-500 text-sm">Cotton Premium</p>
-                <p className="text-white font-mono font-medium">
-                  ₲ {(producto.precio).toLocaleString('es-PY')}
-                </p>
+              
+              <div className="flex flex-col"> {/* Cambiamos a flex-col para apilar precios si hay oferta */}
+                <p className="text-gray-500 text-xs uppercase tracking-wide">Cotton Premium</p>
+                
+                <div className="flex items-center gap-2 mt-1">
+                  {/* PRECIO ACTUAL (Con color de oportunidad) */}
+                  <p className="text-white font-mono font-bold text-lg">
+                    <span className="text-xs align-top opacity-70">₲</span> {/* Símbolo más chico */}
+                    {producto.precio.toLocaleString('es-PY')}
+                  </p>
+
+                  {/* PRECIO ANTERIOR (Tachado - Solo si existe) */}
+                  {producto.precioAntes && (
+                    <p className="text-gray-500 text-sm line-through font-mono">
+                      ₲ {producto.precioAntes.toLocaleString('es-PY')}
+                    </p>
+                  )}
+                  
+                  {/* ETIQUETA DE DESCUENTO (Opcional, muy pro) */}
+                  {producto.precioAntes && (
+                    <span className="text-[10px] font-bold text-green-400 bg-green-400/10 px-1 rounded">
+                      -{Math.round(((producto.precioAntes - producto.precio) / producto.precioAntes) * 100)}%
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -156,7 +177,7 @@ function CustomDesignSection() {
           <p className="text-xl text-gray-300 font-light max-w-md">
             Tu mascota, tu grupo de amigos, o esa frase que solo ustedes entienden.
             <br/><br/>
-            <strong className="text-white">Vos tenés la idea, nosotros la hacemos realidad.</strong>
+            <strong className="text-white">No hace falta que tengas el diseño listo, contanos tu idea y nosotros hacemos la magia.</strong>
           </p>
 
           <a 
@@ -164,7 +185,7 @@ function CustomDesignSection() {
             target="_blank"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
           >
-            Escribinos y lo hacemos posible
+            Quiero contarles mi idea 
             <span className="text-xl">👉</span>
           </a>
         </div>

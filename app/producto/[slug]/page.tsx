@@ -97,9 +97,28 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter uppercase">
               {producto.nombre}
             </h1>
-            <p className="text-3xl font-mono text-orange-500 font-bold">
-              ₲ {producto.precio.toLocaleString('es-PY')}
-            </p>
+            
+            {/* --- INICIO BLOQUE PRECIO NEUROMARKETING --- */}
+            <div className="flex items-end gap-3 mt-2">
+              {/* Precio Actual (Grande y Naranja) */}
+              <p className="text-4xl font-mono text-orange-500 font-bold leading-none">
+                <span className="text-xl align-top mr-1 opacity-80">₲</span>
+                {producto.precio.toLocaleString('es-PY')}
+              </p>
+              
+              {/* Lógica: Si existe precioAntes, mostramos el tachado */}
+              {producto.precioAntes && (
+                <div className="flex flex-col mb-1">
+                   <p className="text-lg text-gray-500 line-through decoration-red-500/50 font-mono">
+                     ₲ {producto.precioAntes.toLocaleString('es-PY')}
+                   </p>
+                   <span className="text-[10px] font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded w-fit">
+                     Ahorrás ₲ {(producto.precioAntes - producto.precio).toLocaleString('es-PY')}
+                   </span>
+                </div>
+              )}
+            </div>
+            {/* --- FIN BLOQUE PRECIO --- */}
           </div>
 
           <p className="text-gray-400 leading-relaxed text-lg">
