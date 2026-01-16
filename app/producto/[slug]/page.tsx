@@ -110,10 +110,10 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               {producto.precioAntes && (
                 <div className="flex flex-col mb-1">
                    <p className="text-lg text-gray-500 line-through decoration-red-500/50 font-mono">
-                     ₲ {producto.precioAntes.toLocaleString('es-PY')}
+                     ₲ {Number(producto.precioAntes).toLocaleString('es-PY')}
                    </p>
                    <span className="text-[10px] font-bold text-green-400 bg-green-400/10 px-2 py-0.5 rounded w-fit">
-                     Ahorrás ₲ {(producto.precioAntes - producto.precio).toLocaleString('es-PY')}
+                     Ahorrás ₲ {(Number(producto.precioAntes) - producto.precio).toLocaleString('es-PY')}
                    </span>
                 </div>
               )}
