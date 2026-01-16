@@ -44,11 +44,26 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
   const handleComprar = () => {
     const telefono = "595992607802"; 
-    const mensaje = `Hola Ñande Vibes! 👋 Quiero la *${producto.nombre}*.
-    \n📏 Talle: *${talle}*
-    \n🎨 Color: *${varianteSeleccionada.color}*
-    \n💰 Precio: Gs. ${producto.precio.toLocaleString()}`;
+
+    // Construimos el mensaje línea por línea en una lista limpia
+    const lineas = [
+      "Hola Ñande Vibes! 👋",
+      "", // Esto crea un espacio en blanco
+      "Quiero pedir este diseño:",
+      "",
+      `👕 *Modelo:* ${producto.nombre}`,
+      `📏 *Talle:* ${talle}`,
+      `🎨 *Color:* ${varianteSeleccionada.color}`,
+      `💰 *Precio:* Gs. ${producto.precio.toLocaleString('es-PY')}`,
+      "",
+      "¿Cómo hacemos para el pago y envío?"
+    ];
+
+    // Unimos todas las líneas con el caracter universal de salto de línea
+    const mensaje = lineas.join("\n");
+
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+    
     window.open(url, '_blank');
   };
 

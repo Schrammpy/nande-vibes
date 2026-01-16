@@ -102,7 +102,7 @@ export const productos = [
   {
     id: 5,
     nombre: "Remera 'Team Sopa'",
-    precio: 100000,
+    precio: 110000,
     categoria: "raices",
     imagen: "/productos/raices/sopa1.png",
     slug: "remera-teamsopa",
@@ -126,7 +126,7 @@ export const productos = [
   {
     id: 6,
     nombre: "Remera 'Team Chipa Guazu'",
-    precio: 100000,
+    precio: 110000,
     categoria: "raices",
     imagen: "/productos/raices/chguazu2.png",
     slug: "remera-chipaguazu",
