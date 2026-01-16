@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Ñande Vibes | Streetwear Paraguayo",
+    default: "Ñande Vibes | Identidad Paraguaya",
     template: "%s | Ñande Vibes"
   },
   description: "Marca de ropa urbana con identidad paraguaya. Diseños exclusivos creados con IA, estampados premium DTF y personalizados. Envíos a todo Paraguay.",
