@@ -32,10 +32,10 @@ export function Footer() {
           </p>
           <div className="flex gap-4 mt-4">
             {/* Redes Sociales */}
-            <a href="https://instagram.com" className="bg-gray-800 p-2 rounded-full hover:bg-white hover:text-black transition"><Instagram size={20}/></a>
-            <a href="https://facebook.com" className="bg-gray-800 p-2 rounded-full hover:bg-white hover:text-black transition"><Facebook size={20}/></a>
+            <a href="https://www.instagram.com/nandevibes.py/" className="bg-gray-800 p-2 rounded-full hover:bg-white hover:text-black transition"><Instagram size={20}/></a>
+            <a href="https://www.facebook.com/nandevibes.py" className="bg-gray-800 p-2 rounded-full hover:bg-white hover:text-black transition"><Facebook size={20}/></a>
             {/* NUEVO: TikTok */}
-            <a href="https://tiktok.com" target="_blank" className="bg-gray-800 p-2 rounded-full hover:bg-white hover:text-black transition">
+            <a href="https://tiktok.com/@nandevibes.py" target="_blank" className="bg-gray-800 p-2 rounded-full hover:bg-white hover:text-black transition">
               <TikTok size={20}/>
             </a>
           </div>
