@@ -9,8 +9,28 @@ import { Footer } from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ñande Vibes | Hecho para sentir Paraguay",
-  description: "Streetwear paraguayo premium.",
+  title: {
+    default: "Ñande Vibes | Streetwear Paraguayo",
+    template: "%s | Ñande Vibes"
+  },
+  description: "Marca de ropa urbana con identidad paraguaya. Diseños exclusivos creados con IA, estampados premium DTF y personalizados. Envíos a todo Paraguay.",
+  keywords: ["remeras paraguay", "streetwear asuncion", "ropa urbana", "diseño paraguayo", "ñande vibes", "remeras personalizadas"],
+  authors: [{ name: "Ñande Vibes" }],
+  openGraph: {
+    title: "Ñande Vibes | Hecho para sentir Paraguay",
+    description: "La nueva era del streetwear nacional. Calidad premium y diseños únicos.",
+    url: "https://www.nandevibes.com.py", // Cuando tengas el dominio activo
+    siteName: "Ñande Vibes",
+    images: [
+      {
+        url: "/hero-banner.png", // La foto que saldrá al compartir en WhatsApp
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "es_PY",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

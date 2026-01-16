@@ -43,7 +43,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
   };
 
   const handleComprar = () => {
-    const telefono = "595981000000"; 
+    const telefono = "595992607802"; 
     const mensaje = `Hola Ñande Vibes! 👋 Quiero la *${producto.nombre}*.
     \n📏 Talle: *${talle}*
     \n🎨 Color: *${varianteSeleccionada.color}*

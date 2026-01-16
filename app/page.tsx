@@ -181,7 +181,7 @@ function CustomDesignSection() {
           </p>
 
           <a 
-            href="https://wa.me/595981000000?text=Hola!%20Quiero%20un%20diseño%20personalizado." 
+            href="https://wa.me/595992607802?text=Hola!%20Quiero%20un%20diseño%20personalizado." 
             target="_blank"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-200 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
           >
