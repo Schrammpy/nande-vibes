@@ -80,7 +80,7 @@ export const productos = [
   },
   {
     id: 4,
-    nombre: "Remera UPD 2026",
+    nombre: "UPD Promo 2026",
     precio: 100000,
     categoria: "hype",
     imagen: "/productos/hype/upd_front1.png",
