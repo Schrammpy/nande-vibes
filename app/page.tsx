@@ -177,7 +177,7 @@ function CustomDesignSection() {
           <p className="text-xl text-gray-300 font-light max-w-md">
             Tu mascota, tu grupo de amigos, o esa frase que solo ustedes entienden.
             <br/><br/>
-            <strong className="text-white">No hace falta que tengas el diseño listo, contanos tu idea y nosotros hacemos la magia.</strong>
+            <strong className="text-white">Contanos tu idea y nosotros hacemos la magia.</strong>
           </p>
 
           <a 

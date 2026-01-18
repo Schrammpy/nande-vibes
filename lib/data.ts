@@ -8,24 +8,23 @@ export const productos = [
     precio: 120000,
     precioAntes: '',
     categoria: "hype", // <--- ETIQUETA NUEVA
-    imagen: "/productos/hype/back_anadie2.png", // Asegurate que este archivo exista en esa carpeta
+    imagen: "/productos/hype/back_anadie1.png", // Asegurate que este archivo exista en esa carpeta
     slug: "remera-anadie",
     variantes: [
-      { 
-        color: "Negro", 
-        hex: "#000000",
+      { color: "Blanco", 
+        hex: "#FFFFFF",
         // AQUI ESTA EL CAMBIO: 'imagenes' en plural y es una lista []
-        imagenes: [
-            "/productos/hype/front_anadie2.png",
-            "/productos/hype/back_anadie2.png"
-        ]
-      },
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF", 
         imagenes: [
             "/productos/hype/front_anadie1.png",
             "/productos/hype/back_anadie1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/front_anadie2.png",
+            "/productos/hype/back_anadie2.png"
         ]
       }
     ]
@@ -59,21 +58,21 @@ export const productos = [
     nombre: "Valentine's Day: 'Terere Sunset' ",
     precio: 110000,
     categoria: "hype",
-    imagen: "/productos/hype/tererelove2.png",
+    imagen: "/productos/hype/tererelove1.png",
     slug: "remera-tereresunset",
     variantes: [
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/hype/terere_lovev2.png"
-        ]
-      },
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
             "/productos/hype/terere_lovev1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/terere_lovev2.png"
         ]
       }
     ]
