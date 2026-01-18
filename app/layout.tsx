@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     default: "Ñande Vibes | Identidad Paraguaya",
     template: "%s | Ñande Vibes"
   },
-  description: "Marca de ropa urbana con identidad paraguaya. Diseños exclusivos creados con IA, estampados premium DTF y personalizados. Envíos a todo Paraguay.",
+  description: "Marca de ropa urbana con identidad paraguaya. Diseños exclusivos inspirados en nuestra cultura, estampados premium DTF y personalizados. Envíos a todo Paraguay.",
   keywords: ["remeras paraguay", "streetwear asuncion", "ropa urbana", "diseño paraguayo", "ñande vibes", "remeras personalizadas"],
   authors: [{ name: "Ñande Vibes" }],
   openGraph: {
     title: "Ñande Vibes | Hecho para sentir Paraguay",
-    description: "La nueva era del streetwear nacional. Calidad premium y diseños únicos.",
+    description: "La nueva era de la identidad nacional. Calidad premium y diseños únicos.",
     url: "https://www.nandevibes.com.py", // Cuando tengas el dominio activo
     siteName: "Ñande Vibes",
     images: [
