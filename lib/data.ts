@@ -199,7 +199,7 @@ export const productos = [
   {
     id: 13,
     nombre: "Remera 'El Pitogue'",
-    precio: 120000,
+    precio: 110000,
     categoria: "raices",
     imagen: "/productos/raices/pitogue1.png",
     slug: "remera-pitogue",
@@ -217,6 +217,69 @@ export const productos = [
         
         imagenes: [
             "/productos/raices/pitogue2.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 14,
+    nombre: "Remera 'Gua'a Pytã'",
+    precio: 120000,
+    categoria: "raices",
+    imagen: "/productos/raices/guacamayo_front1.png",
+    slug: "remera-guaapyta",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/guacamayo_front1.png",
+            "/productos/raices/guacamayo_back1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        
+        imagenes: [
+            "/productos/raices/guacamayo_front2.png",
+            "/productos/raices/guacamayo_back2.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 15,
+    nombre: "Remera 'Mainumby'",
+    precio: 120000,
+    categoria: "raices",
+    imagen: "/productos/raices/picaflor_front1.png",
+    slug: "remera-mainumby",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/picaflor_front1.png",
+            "/productos/raices/picaflor_backv2.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 16,
+    nombre: "Remera 'Ñande símbolos'",
+    precio: 100000,
+    precioAntes: 120000,
+    categoria: "raices",
+    imagen: "/productos/raices/simbolos.png",
+    slug: "remera-simbolos",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/simbolos.png",
         ]
       }
     ]

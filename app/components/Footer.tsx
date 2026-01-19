@@ -74,7 +74,10 @@ export function Footer() {
       
       <div className="border-t border-gray-900 mt-12 pt-8 text-center text-xs text-gray-600 flex flex-col items-center gap-2">
         <p>© 2026 Ñande Vibes. Asunción, Paraguay.</p>
-        <p className="flex items-center gap-1">Creado por My Docs Studio.</p>
+         {/* TU FIRMA DE DEVELOPER */}
+        <p className="flex items-center gap-1">
+          Developed by <span className="text-gray-400 font-bold">Diego Schramm</span> from Luque, Paraguay.
+        </p>
       </div>
     </footer>
   );
