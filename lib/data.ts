@@ -30,25 +30,25 @@ export const productos = [
     ]
   },
   {
-    id: 2,
-    nombre: "Valentine's Day: 'Terere Lovers' ",
+    id: 21,
+    nombre: "Valentine's Day: 'Oparei' ",
     precio: 110000,
     categoria: "hype",
-    imagen: "/productos/hype/terere_lovev1.png",
-    slug: "remera-tererelovers",
+    imagen: "/productos/hype/oparei1.png",
+    slug: "remera-oparei",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/hype/terere_lovev1.png"
+            "/productos/hype/oparei1.png"
         ]
       },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/hype/terere_lovev2.png"
+            "/productos/hype/oparei2.png"
         ]
       }
     ]
@@ -65,14 +65,14 @@ export const productos = [
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/hype/terere_lovev1.png"
+            "/productos/hype/tererelove1.png"
         ]
       },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/hype/terere_lovev2.png"
+            "/productos/hype/tererelove2.png"
         ]
       }
     ]
@@ -94,6 +94,30 @@ export const productos = [
             "/productos/hype/upd_front3.png"
         ]
       },
+    ]
+  },
+  {
+    id: 2,
+    nombre: "Valentine's Day: 'Terere Lovers' ",
+    precio: 110000,
+    categoria: "hype",
+    imagen: "/productos/hype/terere_lovev1.png",
+    slug: "remera-tererelovers",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/hype/terere_lovev1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/terere_lovev2.png"
+        ]
+      }
     ]
   },
 
@@ -272,18 +296,113 @@ export const productos = [
     precio: 100000,
     precioAntes: 120000,
     categoria: "raices",
-    imagen: "/productos/raices/simbolos.png",
+    imagen: "/productos/raices/simbolos1.png",
     slug: "remera-simbolos",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/raices/simbolos.png",
+            "/productos/raices/simbolos1.png",
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/simbolos2.png"
         ]
       }
     ]
   },
+  {
+    id: 18,
+    nombre: "Remera 'Abuela Memby'",
+    precio: 110000,
+    precioAntes: '',
+    categoria: "raices",
+    imagen: "/productos/raices/abuela_memby1.png",
+    slug: "remera-abuelamemby",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/abuela_memby1.png",
+            "/productos/raices/abuela_memby2.png"
+        ]
+      }
+    ]
+  },
+    {
+    id: 19,
+    nombre: "Remera 'Ka'u Argel'",
+    precio: 110000,
+    precioAntes: '',
+    categoria: "raices",
+    imagen: "/productos/raices/kau_argel2.png",
+    slug: "remera-kauargel",
+    variantes: [
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/kau_argel2.png"
+        ]
+      },
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/kau_argel1.png"
+        ]
+      }
+    ]
+  },
+   {
+    id: 20,
+    nombre: "Remera 'Ñembo Letrado/a'",
+    precio: 110000,
+    precioAntes: '',
+    categoria: "raices",
+    imagen: "/productos/raices/letrada.png",
+    slug: "remera-letrado",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/letrada.png",
+            "/productos/raices/letrado.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 22,
+    nombre: "Remera 'Rova'atâ'",
+    precio: 100000,
+    precioAntes: 110000,
+    categoria: "raices",
+    imagen: "/productos/raices/rova2.png",
+    slug: "remera-rova",
+    variantes: [
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/rova2.png",
+        ]
+      },
+      { color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/rova1.png"
+        ]
+      }
+    ]
+  },
+
 
   // --- COLECCIÓN: ICONOS ---
   {
@@ -379,6 +498,30 @@ export const productos = [
         hex: "#000000",
         imagenes: [
             "/productos/iconos/cerrohu2.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 17,
+    nombre: "Remera 'Cerro Tres Kandú'",
+    precio: 130000,
+    categoria: "iconos",
+    imagen: "/productos/iconos/treskandu1.png",
+    slug: "remera-cerrotreskandu",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/iconos/treskandu1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/iconos/treskandu2.png"
         ]
       }
     ]
