@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 // 1. IMPORTAR LOS COMPONENTES
 import { Navbar } from "./components/Navbar";
@@ -52,6 +53,18 @@ export default function RootLayout({
         {/* 3. AQUÍ VA EL FOOTER ABAJO (Seguro te falta esta línea) */}
         <Footer />
         
+
+        {/* Microsoft Clarity - Corregido para Next.js */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "v6qq70og64");
+          `}
+        </Script>
+
       </body>
     </html>
   );

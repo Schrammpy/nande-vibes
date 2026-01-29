@@ -7,6 +7,7 @@ export const productos = [
     nombre: "Valentine's Day: 'ANADIE' ",
     precio: 120000,
     precioAntes: '',
+    precioEUR: 29.90,
     categoria: "hype", // <--- ETIQUETA NUEVA
     imagen: "/productos/hype/back_anadie1.png", // Asegurate que este archivo exista en esa carpeta
     slug: "remera-anadie",
@@ -33,6 +34,8 @@ export const productos = [
     id: 21,
     nombre: "Valentine's Day: 'Oparei' ",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "hype",
     imagen: "/productos/hype/oparei1.png",
     slug: "remera-oparei",
@@ -54,25 +57,27 @@ export const productos = [
     ]
   },
   {
-    id: 3,
-    nombre: "Valentine's Day: 'Terere Sunset' ",
+    id: 26,
+    nombre: " SANBER NARDI !",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "hype",
-    imagen: "/productos/hype/tererelove1.png",
-    slug: "remera-tereresunset",
+    imagen: "/productos/hype/sanber1.png",
+    slug: "remera-sanber-nardi",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/hype/tererelove1.png"
+            "/productos/hype/sanber1.png"
         ]
       },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/hype/tererelove2.png"
+            "/productos/hype/sanber2.png"
         ]
       }
     ]
@@ -80,7 +85,9 @@ export const productos = [
   {
     id: 4,
     nombre: "UPD Promo 2026",
-    precio: 100000,
+    precio: 80000,
+    precioAntes: 100000,
+    precioEUR: 29.90,
     categoria: "hype",
     imagen: "/productos/hype/upd_front1.png",
     slug: "remera-upd",
@@ -100,6 +107,8 @@ export const productos = [
     id: 2,
     nombre: "Valentine's Day: 'Terere Lovers' ",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "hype",
     imagen: "/productos/hype/terere_lovev1.png",
     slug: "remera-tererelovers",
@@ -120,12 +129,40 @@ export const productos = [
       }
     ]
   },
+  {
+    id: 3,
+    nombre: "Valentine's Day: 'Terere Sunset' ",
+    precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "hype",
+    imagen: "/productos/hype/tererelove1.png",
+    slug: "remera-tereresunset",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/hype/tererelove1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/tererelove2.png"
+        ]
+      }
+    ]
+  },
 
   // --- COLECCIÓN: RAICES ---
   {
     id: 5,
     nombre: "Remera 'Team Sopa'",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/sopa1.png",
     slug: "remera-teamsopa",
@@ -150,6 +187,8 @@ export const productos = [
     id: 6,
     nombre: "Remera 'Team Chipa Guazu'",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/chguazu2.png",
     slug: "remera-chipaguazu",
@@ -174,6 +213,8 @@ export const productos = [
     id: 7,
     nombre: "Remera 'Sopa vs Chipa Guazu'",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/sopavschguazu1.png",
     slug: "remera-sopavschipaguazu",
@@ -198,6 +239,8 @@ export const productos = [
     id: 8,
     nombre: "Remera 'Terere pantano'",
     precio: 120000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/terere_front2.png",
     slug: "remera-tererepantano",
@@ -224,6 +267,8 @@ export const productos = [
     id: 13,
     nombre: "Remera 'El Pitogue'",
     precio: 110000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/pitogue1.png",
     slug: "remera-pitogue",
@@ -249,6 +294,8 @@ export const productos = [
     id: 14,
     nombre: "Remera 'Gua'a Pytã'",
     precio: 120000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/guacamayo_front1.png",
     slug: "remera-guaapyta",
@@ -276,6 +323,8 @@ export const productos = [
     id: 15,
     nombre: "Remera 'Mainumby'",
     precio: 120000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/picaflor_front1.png",
     slug: "remera-mainumby",
@@ -295,6 +344,7 @@ export const productos = [
     nombre: "Remera 'Ñande símbolos'",
     precio: 100000,
     precioAntes: 120000,
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/simbolos1.png",
     slug: "remera-simbolos",
@@ -320,6 +370,7 @@ export const productos = [
     nombre: "Remera 'Abuela Memby'",
     precio: 110000,
     precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/abuela_memby1.png",
     slug: "remera-abuelamemby",
@@ -339,6 +390,7 @@ export const productos = [
     nombre: "Remera 'Ka'u Argel'",
     precio: 110000,
     precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/kau_argel2.png",
     slug: "remera-kauargel",
@@ -364,6 +416,7 @@ export const productos = [
     nombre: "Remera 'Ñembo Letrado/a'",
     precio: 110000,
     precioAntes: '',
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/letrada.png",
     slug: "remera-letrado",
@@ -383,6 +436,7 @@ export const productos = [
     nombre: "Remera 'Rova'atâ'",
     precio: 100000,
     precioAntes: 110000,
+    precioEUR: 29.90,
     categoria: "raices",
     imagen: "/productos/raices/rova2.png",
     slug: "remera-rova",
@@ -409,6 +463,8 @@ export const productos = [
     id: 9,
     nombre: "Remera 'Costanera Asunción'",
     precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "iconos",
     imagen: "/productos/iconos/costanera2.png",
     slug: "remera-costanera",
@@ -433,6 +489,8 @@ export const productos = [
     id: 10,
     nombre: "Remera 'Jaha Mombyry'",
     precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "iconos",
     imagen: "/productos/iconos/mombyry1.png",
     slug: "remera-mombyry",
@@ -457,6 +515,8 @@ export const productos = [
     id: 11,
     nombre: "Remera 'Salto Cristal'",
     precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "iconos",
     imagen: "/productos/iconos/saltocristal2.png",
     slug: "remera-saltocristal",
@@ -482,6 +542,8 @@ export const productos = [
     id: 12,
     nombre: "Remera 'Cerro Hu'",
     precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "iconos",
     imagen: "/productos/iconos/cerrohu1.png",
     slug: "remera-cerrohu",
@@ -506,6 +568,8 @@ export const productos = [
     id: 17,
     nombre: "Remera 'Cerro Tres Kandú'",
     precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
     categoria: "iconos",
     imagen: "/productos/iconos/treskandu1.png",
     slug: "remera-cerrotreskandu",
@@ -525,5 +589,39 @@ export const productos = [
         ]
       }
     ]
+  },
+  // --- COLECCIÓN: JUNIOR VIAJERO ---
+  {
+    id: 23,
+    nombre: "Remera 'YT Junior Viajero'",
+    precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "junior", // <--- ETIQUETA IMPORTANTE
+    imagen: "/productos/junior/juniorviajero.png",
+    slug: "juniorviajero",
+    variantes: [  ]
+  },
+  {
+    id: 24,
+    nombre: "Remera 'JV: QueLocura!'",
+    precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "junior", // <--- ETIQUETA IMPORTANTE
+    imagen: "/productos/junior/quelocura.png",
+    slug: "quelocura",
+    variantes: [  ]
+  },
+  {
+    id: 25,
+    nombre: "Remera 'JV: Jahata'",
+    precio: 130000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "junior", // <--- ETIQUETA IMPORTANTE
+    imagen: "/productos/junior/jahata.png",
+    slug: "jahata",
+    variantes: [  ]
   },
 ];

@@ -3,9 +3,34 @@
 import Link from 'next/link';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useCurrencyStore } from '../store/currencyStore'; // Importar el store
+
+
+// Bandera de Paraguay (Simple)
+const FlagPY = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24" width="24" height="16" className="rounded-sm">
+    <rect width="36" height="24" fill="#fff"/>
+    <rect width="36" height="8" fill="#D52B1E"/>
+    <rect y="8" width="36" height="8" fill="#fff"/>
+    <rect y="16" width="36" height="8" fill="#0038A8"/>
+    {/* Escudo simplificado (círculo) */}
+    <circle cx="18" cy="12" r="3" fill="none" stroke="#000" strokeWidth="0.5"/>
+    <circle cx="18" cy="12" r="1" fill="#D52B1E"/>
+  </svg>
+);
+
+// Bandera de Unión Europea/España (Usamos UE porque Printful envía a toda Europa)
+// O si preferís España específicamente, usá esta:
+const FlagES = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24" width="24" height="16" className="rounded-sm">
+    <rect width="36" height="24" fill="#AA151B"/>
+    <rect y="6" width="36" height="12" fill="#F1BF00"/>
+  </svg>
+);
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { currency, setCurrency } = useCurrencyStore();
 
   return (
     <nav className="border-b border-gray-800 bg-black/90 backdrop-blur-md sticky top-0 z-50">
@@ -32,6 +57,15 @@ export function Navbar() {
 
         {/* --- GRUPO DERECHA: ICONOS --- */}
         <div className="flex items-center gap-4">
+    
+    {/* SELECTOR DE MONEDA */}
+    <button 
+        onClick={() => setCurrency(currency === 'PYG' ? 'EUR' : 'PYG')}
+        className="flex items-center gap-2 text-sm font-bold border border-gray-700 px-3 py-1.5 rounded-full hover:bg-gray-800 transition bg-black/50 backdrop-blur-md"
+    >
+        {currency === 'PYG' ? <FlagPY /> : <FlagES />}
+        <span>{currency}</span>
+    </button>
           
           {/* Carrito */}
           <button className="text-white hover:text-orange-500 transition relative">

@@ -6,12 +6,25 @@ import { notFound } from "next/navigation";
 import { useState, use } from "react"; 
 import { Ruler, ChevronDown, ChevronUp } from "lucide-react"; 
 import { ProductImageZoom } from "@/app/components/ProductImageZoom";
+// 1. IMPORTAMOS LO NECESARIO PARA PAGOS Y MONEDA
+import { useCurrencyStore } from "@/app/store/currencyStore"; 
+import { PaypalButton } from "@/app/components/PaypalButton"; 
 
+// Componente de Bandera de España para que se vea bien en Windows
+const FlagES = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24" width="20" height="14" className="rounded-[2px] inline-block ml-2 align-middle">
+    <rect width="36" height="24" fill="#AA151B"/>
+    <rect y="6" width="36" height="12" fill="#F1BF00"/>
+  </svg>
+);
 
 export default function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
   const producto = productos.find((p) => p.slug === slug);
+
+  // 2. OBTENEMOS LA MONEDA DEL STORE (Esto arregla el error "currency not defined")
+  const { currency } = useCurrencyStore();
 
   if (!producto) {
     notFound();
@@ -23,48 +36,42 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
   // ESTADO 1: Talle
   const [talle, setTalle] = useState("M");
 
-  // ESTADO 2: Variante de Color Completa
+  // ESTADO 2: Variante de Color
   const [varianteSeleccionada, setVarianteSeleccionada] = useState(
     tieneVariantes 
       ? producto.variantes![0] 
-      : { color: "Único", hex: "", imagenes: [producto.imagen] } // Fallback si no hay variantes
+      : { color: "Único", hex: "", imagenes: [producto.imagen] }
   );
 
-  // ESTADO 3: La imagen que se ve ACTUALMENTE en grande
+  // ESTADO 3: Imagen Actual
   const [imagenActual, setImagenActual] = useState(varianteSeleccionada.imagenes[0]);
 
+  // ESTADO 4: Guía de Talles
   const [mostrarGuia, setMostrarGuia] = useState(false);
 
-
-  // Función para cambiar de color y resetear la foto al frente
   const cambiarColor = (nuevaVariante: any) => {
     setVarianteSeleccionada(nuevaVariante);
-    setImagenActual(nuevaVariante.imagenes[0]); // Volver a mostrar el frente al cambiar color
+    setImagenActual(nuevaVariante.imagenes[0]); 
   };
 
   const handleComprar = () => {
-    const telefono = "595992607802"; 
-
-    // Construimos el mensaje línea por línea en una lista limpia
+    const telefono = "595981000000"; 
     const lineas = [
-      "Hola Ñande Vibes! 👋",
-      "", // Esto crea un espacio en blanco
-      "Quiero pedir este diseño:",
-      "",
-      `👕 *Modelo:* ${producto.nombre}`,
-      `📏 *Talle:* ${talle}`,
-      `🎨 *Color:* ${varianteSeleccionada.color}`,
-      `💰 *Precio:* Gs. ${producto.precio.toLocaleString('es-PY')}`,
-      "",
-      "¿Cómo hacemos para el pago y envío?"
-    ];
-
-    // Unimos todas las líneas con el caracter universal de salto de línea
-    const mensaje = lineas.join("\n");
-
-    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-    
-    window.open(url, '_blank');
+        "Hola Ñande Vibes! 👋",
+        "",
+        "Quiero mandar hacer este diseño:",
+        "",
+        `👕 *Modelo:* ${producto.nombre}`,
+        `📏 *Talle:* ${talle}`,
+        `🎨 *Color:* ${varianteSeleccionada.color}`,
+        `💰 *Precio:* Gs. ${producto.precio.toLocaleString('es-PY')}`,
+        "",
+        "¿Cómo hacemos para el pago y envío?"
+      ];
+  
+      const mensaje = lineas.join("\n");
+      const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
   };
 
   return (
@@ -72,22 +79,17 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         
         {/* COLUMNA IZQUIERDA: GALERÍA */}
-<div className="md:sticky md:top-24 flex flex-col gap-4"> 
-    
-    {/* FOTO GRANDE CON ZOOM */}
-<div className="relative aspect-square rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
-    
-    {/* Borramos el div con opacity-0 y ponemos el componente directo */}
-    {/* Usamos 'key' aquí para que si cambiás de foto, el zoom se reinicie */}
-    <ProductImageZoom 
-        key={imagenActual} 
-        src={imagenActual} 
-        alt={producto.nombre} 
-    />
-    
-</div>
+        <div className="md:sticky md:top-24 flex flex-col gap-4"> 
+            {/* FOTO GRANDE CON ZOOM */}
+            <div className="relative aspect-square rounded-2xl overflow-hidden border border-gray-800 bg-gray-900 shadow-2xl">
+                <ProductImageZoom 
+                    key={imagenActual} 
+                    src={imagenActual} 
+                    alt={producto.nombre} 
+                />
+            </div>
 
-            {/* MINIATURAS (Solo si hay más de 1 foto) */}
+            {/* MINIATURAS */}
             {varianteSeleccionada.imagenes.length > 1 && (
                 <div className="flex gap-4 overflow-x-auto pb-2">
                     {varianteSeleccionada.imagenes.map((img: string, index: number) => (
@@ -113,16 +115,26 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               {producto.nombre}
             </h1>
             
-            {/* --- INICIO BLOQUE PRECIO NEUROMARKETING --- */}
+            {/* --- 3. PRECIO DINÁMICO (Gs o €) --- */}
             <div className="flex items-end gap-3 mt-2">
-              {/* Precio Actual (Grande y Naranja) */}
               <p className="text-4xl font-mono text-orange-500 font-bold leading-none">
-                <span className="text-xl align-top mr-1 opacity-80">₲</span>
-                {producto.precio.toLocaleString('es-PY')}
+                {currency === 'PYG' ? (
+                    // MODO PARAGUAY
+                    <>
+                        <span className="text-xl align-top mr-1 opacity-80">₲</span>
+                        {producto.precio.toLocaleString('es-PY')}
+                    </>
+                ) : (
+                    // MODO EUROPA
+                    <>
+                        <span className="text-xl align-top mr-1 opacity-80">€</span>
+                        {producto.precioEUR || "29.90"}
+                    </>
+                )}
               </p>
               
-              {/* Lógica: Si existe precioAntes, mostramos el tachado */}
-              {producto.precioAntes && (
+              {/* Tachado (Solo en Guaraníes) */}
+              {currency === 'PYG' && producto.precioAntes && (
                 <div className="flex flex-col mb-1">
                    <p className="text-lg text-gray-500 line-through decoration-red-500/50 font-mono">
                      ₲ {Number(producto.precioAntes).toLocaleString('es-PY')}
@@ -133,7 +145,6 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 </div>
               )}
             </div>
-            {/* --- FIN BLOQUE PRECIO --- */}
           </div>
 
           <p className="text-gray-400 leading-relaxed text-lg">
@@ -188,7 +199,8 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               ))}
             </div>
           </div>
-              {/* --- INICIO GUÍA DE TALLES DESPLEGABLE --- */}
+
+          {/* GUÍA DE TALLES */}
           <div className="border-t border-b border-gray-800 py-4">
             <button 
               onClick={() => setMostrarGuia(!mostrarGuia)}
@@ -201,12 +213,16 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               {mostrarGuia ? <ChevronUp size={18}/> : <ChevronDown size={18}/>}
             </button>
 
-            {/* LA TABLA (Solo se muestra si mostrarGuia es true) */}
             {mostrarGuia && (
               <div className="mt-4 animate-fadeIn">
                 <div className="bg-gray-900 rounded-lg p-4 text-xs md:text-sm border border-gray-800">
+                  
+                  {/* TÍTULO DINÁMICO */}
                   <p className="text-gray-500 mb-3 italic">
-                    * Medidas en centímetros.
+                    {currency === 'PYG' 
+                      ? "* Medidas estándar de confección nacional (Algodón)."
+                      : "* Medidas estándar camiseta unisex mangas cortas (Europa)."
+                    }
                   </p>
                   
                   <div className="grid grid-cols-3 gap-4 border-b border-gray-700 pb-2 mb-2 font-bold text-gray-300">
@@ -215,16 +231,31 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                     <div>LARGO (B)</div>
                   </div>
 
-                  {/* FILAS DE LA TABLA */}
+                  {/* TABLA DINÁMICA */}
                   <div className="space-y-2 text-gray-400 font-mono">
-                    <div className="grid grid-cols-3 gap-4"><span>P (S)</span><span>48 cm</span><span>68 cm</span></div>
-                    <div className="grid grid-cols-3 gap-4"><span>M (M)</span><span>50 cm</span><span>70 cm</span></div>
-                    <div className="grid grid-cols-3 gap-4"><span>G (L)</span><span>54 cm</span><span>74 cm</span></div>
-                    <div className="grid grid-cols-3 gap-4"><span>XG (XL)</span><span>58 cm</span><span>78 cm</span></div>
-                    <div className="grid grid-cols-3 gap-4"><span>XXG (XXL)</span><span>60 cm</span><span>80 cm</span></div>
+                    {currency === 'PYG' ? (
+                        // --- MEDIDAS PARAGUAY (Tu taller local) ---
+                        <>
+                            <div className="grid grid-cols-3 gap-4"><span>P</span><span>48 cm</span><span>68 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>M</span><span>50 cm</span><span>70 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>G</span><span>54 cm</span><span>74 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>XG</span><span>58 cm</span><span>78 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>XXG</span><span>60 cm</span><span>80 cm</span></div>
+                        </>
+                    ) : (
+                        // --- MEDIDAS PRINTFUL (Bella + Canvas 3001) ---
+                        // Fuente: Printful Size Guide
+                        <>
+                            <div className="grid grid-cols-3 gap-4"><span>S</span><span>46 cm</span><span>71 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>M</span><span>51 cm</span><span>74 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>L</span><span>56 cm</span><span>76 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>XL</span><span>61 cm</span><span>79 cm</span></div>
+                            <div className="grid grid-cols-3 gap-4"><span>2XL</span><span>66 cm</span><span>81 cm</span></div>
+                        </>
+                    )}
                   </div>
                   
-                  {/* DIBUJITO EXPLICATIVO (Opcional, texto visual) */}
+                  {/* DIBUJITO EXPLICATIVO */}
                   <div className="mt-4 border-t border-gray-800 pt-3 flex justify-center opacity-50">
                      <span className="text-[10px] text-center">
                         (A) Axila a Axila <br/> (B) Hombro hasta abajo
@@ -234,15 +265,47 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
               </div>
             )}
           </div>
-          {/* --- FIN GUÍA DE TALLES --- */}
-          <button
-            onClick={handleComprar}
-            className="mt-4 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-5 rounded-xl text-xl transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-green-900/40 transform active:scale-95"
-          >
 
-            <span>Pedir por WhatsApp</span>
-          </button>
-          
+          {/* --- 4. BOTONES DE COMPRA INTELIGENTES --- */}
+          {currency === 'PYG' ? (
+            
+            // OPCIÓN A: PARAGUAY (WHATSAPP)
+            <button
+                onClick={handleComprar}
+                className="mt-4 w-full bg-green-600 hover:bg-green-500 text-white font-bold py-5 rounded-xl text-xl transition-all flex items-center justify-center gap-3 shadow-lg hover:shadow-green-900/40 transform active:scale-95"
+            >
+                <span>Pedir por WhatsApp</span>
+            </button>
+
+          ) : (
+            
+              // OPCIÓN B: EUROPA (PAYPAL)
+            <div className="mt-4 w-full animate-fadeIn">
+                <div className="bg-gray-900 border border-gray-800 p-6 rounded-xl mb-4">
+                    
+                    {/* MENSAJE DE CONFIANZA */}
+                    <div className="text-center mb-6">
+                        <p className="text-white font-bold text-sm flex items-center justify-center gap-2">
+                           Producido en nuestros talleres de España <FlagES />
+                        </p>
+                        <p className="text-gray-500 text-xs mt-1">
+                           Calidad premium y envío rápido garantizado.
+                        </p>
+                    </div>
+
+                    {/* Botón de PayPal */}
+                    <PaypalButton 
+                        amount={producto.precioEUR?.toString() || "29.90"} 
+                        onSuccess={() => alert("¡Pago recibido! Gracias por tu compra.")} 
+                    />
+                </div>
+                
+                <p className="text-xs text-center text-gray-500">
+                    Procesado de forma segura por PayPal.
+                </p>
+            </div>
+
+          )}
         </div>
       </div>
     </main>
