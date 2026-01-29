@@ -10,7 +10,7 @@ interface Props {
 export function PaypalButton({ amount, onSuccess }: Props) {
   return (
     <PayPalScriptProvider options={{ 
-        clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
+        clientId: "AR9Yv2YCOeVpvyQ_Y_O9Eoci1lD1DfKi87VJSN5gKTO8llJP87yR1prCvMHjvkUfdPVRpGNLCpYQ6uz3",
         currency: "EUR" // Cobramos en Euros
     }}>
       <div className="z-0">
