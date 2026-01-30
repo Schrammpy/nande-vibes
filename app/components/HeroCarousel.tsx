@@ -34,7 +34,7 @@ const slides = [
     ),
     altText: "Portada Principal Ñande Vibes",
     desc: "\"Hecho para sentir Paraguay.\"",
-    btnText: "Ver los Drops",
+    btnText: "Ver las Colecciones",
     btnLink: "#catalogo",
     isCollab: false
   },
