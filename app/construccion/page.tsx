@@ -30,7 +30,7 @@ export default function ConstruccionPage() {
         
         {/* Opción Pro: Botón para preguntar por WhatsApp si es urgente */}
         <a 
-          href="https://wa.me/595981000000" // PONÉ TU NÚMERO
+          href="https://wa.me/595992607802" // PONÉ TU NÚMERO
           target="_blank"
           className="border border-gray-700 text-white px-8 py-3 rounded-full font-bold hover:bg-gray-900 transition-all"
         >
