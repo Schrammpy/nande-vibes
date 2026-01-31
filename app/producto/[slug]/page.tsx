@@ -4,8 +4,8 @@ import Image from "next/image";
 import { productos } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { useState, use } from "react"; 
-import { Ruler, ChevronDown, ChevronUp } from "lucide-react"; 
 import { ProductImageZoom } from "@/app/components/ProductImageZoom";
+import { Ruler, ChevronDown, ChevronUp, Truck } from "lucide-react"; // <--- Agregá Truck
 // 1. IMPORTAMOS LO NECESARIO PARA PAGOS Y MONEDA
 import { useCurrencyStore } from "@/app/store/currencyStore"; 
 import { PaypalButton } from "@/app/components/PaypalButton"; 
@@ -17,6 +17,18 @@ const FlagES = () => (
     <rect y="6" width="36" height="12" fill="#F1BF00"/>
   </svg>
 );
+
+const FlagPY = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24" width="20" height="14" className="rounded-[2px] inline-block ml-2 align-middle">
+    <rect width="36" height="24" fill="#fff"/>
+    <rect width="36" height="8" fill="#D52B1E"/>
+    <rect y="8" width="36" height="8" fill="#fff"/>
+    <rect y="16" width="36" height="8" fill="#0038A8"/>
+    <circle cx="18" cy="12" r="3" fill="none" stroke="#000" strokeWidth="0.5"/>
+    <circle cx="18" cy="12" r="1" fill="#D52B1E"/>
+  </svg>
+);
+
 
 export default function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = use(params);
@@ -145,6 +157,20 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 </div>
               )}
             </div>
+
+              {/* --- NUEVO: BADGE DE ENVÍO GRATIS --- */}
+            <div className="flex items-center gap-2 mt-3 bg-green-500/10 border border-green-500/20 rounded-lg px-3 py-2 w-fit">
+                <Truck size={18} className="text-green-400" />
+                <span className="text-green-400 text-xs font-bold uppercase tracking-wider">
+                    {currency === 'PYG' ? (
+                        <>Envío Gratis a todo el país <FlagPY /></>
+                    ) : (
+                        <>Envío Gratis a toda España <FlagES /></>
+                    )}
+                </span>
+            </div>
+
+
           </div>
 
           <p className="text-gray-400 leading-relaxed text-lg">
