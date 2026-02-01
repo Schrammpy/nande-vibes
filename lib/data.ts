@@ -31,27 +31,27 @@ export const productos = [
     ]
   },
   {
-    id: 21,
-    nombre: "Valentine's Day: 'Oparei' ",
+    id: 28,
+    nombre: "Encarnación Sunset",
     precio: 110000,
     precioAntes: '',
     precioEUR: 27.90,
     categoria: "hype",
-    imagen: "/productos/hype/oparei1.png",
-    slug: "remera-oparei",
+    imagen: "/productos/hype/encarnacion1.png",
+    slug: "remera-encarnacion",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/hype/oparei1.png"
+            "/productos/hype/encarnacion1.png"
         ]
       },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/hype/oparei2.png"
+            "/productos/hype/encarnacion2.png"
         ]
       }
     ]
@@ -78,6 +78,58 @@ export const productos = [
         hex: "#000000",
         imagenes: [
             "/productos/hype/sanber2.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 27,
+    nombre: "Playa San José",
+    precio: 110000,
+    precioAntes: '',
+    precioEUR: 27.90,
+    categoria: "hype",
+    imagen: "/productos/hype/sanjose1.png",
+    slug: "remera-sanjose",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/hype/sanjose1.png",
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/sanjose2.png"
+        ]
+      }
+    ]
+  },
+   {
+    id: 21,
+    nombre: "Valentine's Day: 'Oparei' ",
+    precio: 110000,
+    precioAntes: '',
+    precioEUR: 27.90,
+    categoria: "hype",
+    imagen: "/productos/hype/oparei1.png",
+    slug: "remera-oparei",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/hype/oparei1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/oparei2.png"
         ]
       }
     ]
@@ -485,28 +537,28 @@ export const productos = [
       }
     ]
   },
-  {
-    id: 10,
-    nombre: "Remera 'Jaha Mombyry'",
+    {
+    id: 17,
+    nombre: "Remera 'Cerro Tres Kandú'",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "iconos",
-    imagen: "/productos/iconos/mombyry1.png",
-    slug: "remera-mombyry",
+    imagen: "/productos/iconos/treskandu1.png",
+    slug: "remera-cerrotreskandu",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/iconos/mombyry1.png"
+            "/productos/iconos/treskandu1.png"
         ]
       },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/iconos/mombyry2.png"
+            "/productos/iconos/treskandu2.png"
         ]
       }
     ]
@@ -565,27 +617,27 @@ export const productos = [
     ]
   },
   {
-    id: 17,
-    nombre: "Remera 'Cerro Tres Kandú'",
+    id: 10,
+    nombre: "Remera 'Jaha Mombyry'",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "iconos",
-    imagen: "/productos/iconos/treskandu1.png",
-    slug: "remera-cerrotreskandu",
+    imagen: "/productos/iconos/mombyry1.png",
+    slug: "remera-mombyry",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/iconos/treskandu1.png"
+            "/productos/iconos/mombyry1.png"
         ]
       },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/iconos/treskandu2.png"
+            "/productos/iconos/mombyry2.png"
         ]
       }
     ]
