@@ -322,6 +322,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                     {/* Botón de PayPal */}
                     <PaypalButton 
                         amount={producto.precioEUR?.toString() || "29.90"} 
+                         description={`${producto.nombre} - Talle: ${talle} - Color: ${varianteSeleccionada.color}`}
                         onSuccess={() => alert("¡Pago recibido! Gracias por tu compra.")} 
                     />
                 </div>
