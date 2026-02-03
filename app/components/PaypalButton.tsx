@@ -13,9 +13,8 @@ export function PaypalButton({ amount, description, onSuccess }: Props) {
   // OPCIONES DE CONFIGURACIÓN
   const initialOptions = {
     // Usamos el ID directo para eliminar cualquier duda de variables de entorno
-    clientId: "AR9Yv2YCOeVpvyQ_Y_O9Eoci1ID1DfKi87VJSN5gKTO8IIJP87yR1prCvMHjvkUfdPVRpGNLCpYQ6uz3",
+    clientId: "AR9Yv2YCOeVpvyQ_Y_O9Eoci1lD1DfKi87VJSN5gKTO8llJP87yR1prCvMHjvkUfdPVRpGNLCpYQ6uz3",
     currency: "EUR",
-    intent: "capture",
   };
 
   return (
