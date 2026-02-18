@@ -74,13 +74,13 @@ const slides = [
     // Nota: El componente Countdown devuelve NULL cuando termina, 
     // así que podríamos hacer una lógica más compleja, pero para simplificar:
     // Vamos a poner el reloj Y el botón, pero el botón dirá "Ver adelanto" por ahora.
-    desc: "Preparate para la colección oficial de Semana Santa.",
+    
     
     // Usamos esto para renderizar el reloj ANTES del botón
     customContent: <Countdown />, 
     altText: "Colaboración Junior Viajero",
-    desc: "Lanzamiento:",
     btnText: "Ver Colaboración",
+    desc: "Lanzamiento:",
     btnLink: "/collab/junior-viajero",
     isCollab: true
   }
