@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowDown } from 'lucide-react';
+import { Countdown } from './Countdown';
 
 
 const YoutubeIcon = () => (
@@ -36,39 +37,54 @@ const slides = [
     desc: "\"Hecho para sentir Paraguay.\"",
     btnText: "Ver las Colecciones",
     btnLink: "#catalogo",
-    isCollab: false
+    isCollab: false,
+    customContent: undefined // <--- Agregá esto por las dudas
   },
   
-  /* --- COMENTAMOS ESTO HASTA QUE JUNIOR DE EL OK ---
   {
     id: 2,
-    bgImage: "/hero-junior.jpg",
-    subtitle: "EDICIÓN LIMITADA",
+    bgImage: "/junior-banner.jpg",
     renderTitle: () => (
       <div className="flex flex-col items-center leading-tight w-full px-2">
         <div className="flex flex-wrap justify-center items-baseline gap-2 md:gap-4 tracking-tighter">
-          <span className="text-white">ÑANDE</span>
-          <span className="text-orange-500">VIBES</span>
+          <span className="text-white">Ñ</span>
+          <span className="text-orange-500">V</span>
           <span className="font-serif italic text-white opacity-80 text-4xl md:text-7xl">x</span>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-4 mt-2 tracking-tighter">
           <span className="text-red-600">JUNIOR</span>
           <div className="flex items-center gap-3">
             <span className="text-white">VIAJERO</span>
-            <div className="transform scale-110 mt-1">
-               <YoutubeIcon />
-            </div>
+            <div className="transform scale-125 mt-1 ml-2 cursor-pointer hover:scale-150 transition-transform">
+            <a 
+                href="https://www.youtube.com/@JuniorViajero" // <--- PONÉ EL LINK REAL DE SU CANAL
+                target="_blank" 
+                rel="noopener noreferrer"
+                title="Ir al canal de Junior Viajero"
+            >
+                <YoutubeIcon />
+            </a>
+          </div>
           </div>
         </div>
       </div>
     ),
+    // AQUI ESTA EL CAMBIO:
+    // En lugar de un botón fijo, ponemos el reloj. 
+    // Nota: El componente Countdown devuelve NULL cuando termina, 
+    // así que podríamos hacer una lógica más compleja, pero para simplificar:
+    // Vamos a poner el reloj Y el botón, pero el botón dirá "Ver adelanto" por ahora.
+    desc: "Preparate para la colección oficial de Semana Santa.",
+    
+    // Usamos esto para renderizar el reloj ANTES del botón
+    customContent: <Countdown />, 
     altText: "Colaboración Junior Viajero",
-    desc: "Una colección exclusiva para los que aman la ruta.",
+    desc: "Lanzamiento:",
     btnText: "Ver Colaboración",
     btnLink: "/collab/junior-viajero",
     isCollab: true
   }
-  --- FIN DEL COMENTARIO --- */
+ 
 ];
 
 export function HeroCarousel() {
@@ -92,8 +108,6 @@ export function HeroCarousel() {
           className={`absolute inset-0 w-full h-full transition-all duration-1000 ease-in-out transform
             ${index === current ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}
           `}
-          // El truco de 'translate-x-full' hace que el que no se ve, se vaya a la derecha
-          // Pero para un efecto más suave de "fade + slide", jugamos con la opacidad.
         >
           {/* 1. IMAGEN DE FONDO */}
           <div className="absolute inset-0 w-full h-full">
@@ -125,11 +139,19 @@ export function HeroCarousel() {
                 {slide.renderTitle()}
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 max-w-lg mx-auto font-light drop-shadow-md">
+            <p className="text-xl md:text-2xl text-gray-200 max-w-lg mx-auto font-light drop-shadow-md mb-6">
               {slide.desc}
             </p>
 
-            <div className="pt-8">
+            {/* --- NUEVO: CONTENIDO EXTRA (EL RELOJ) --- */}
+            {/* Solo se muestra si el slide tiene la propiedad customContent */}
+            {slide.customContent && (
+                <div className="mb-6 w-full max-w-2xl animate-fadeIn">
+                    {slide.customContent}
+                </div>
+            )}
+
+            <div className="pt-6 mb-12 md:mb-16"> {/* Bajamos un poco el padding top */}
               <Link 
                 href={slide.btnLink} 
                 className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all transform hover:scale-105"
@@ -143,7 +165,7 @@ export function HeroCarousel() {
       ))}
 
       {/* PUNTITOS INDICADORES (Abajo) */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
+      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, idx) => (
           <button
             key={idx}

@@ -163,7 +163,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                 <Truck size={18} className="text-green-400" />
                 <span className="text-green-400 text-xs font-bold uppercase tracking-wider">
                     {currency === 'PYG' ? (
-                        <>Envío Gratis a todo el país <FlagPY /></>
+                        <>Envíos a todo el país <FlagPY /></>
                     ) : (
                         <>Envío Gratis a toda España <FlagES /></>
                     )}
