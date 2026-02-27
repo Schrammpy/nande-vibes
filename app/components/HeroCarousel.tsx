@@ -43,7 +43,7 @@ const slides = [
   
   {
     id: 2,
-    bgImage: "/junior-banner.jpg",
+    bgImage: "/junior-banner.jpeg",
     renderTitle: () => (
       <div className="flex flex-col items-center leading-tight w-full px-2">
         <div className="flex flex-wrap justify-center items-baseline gap-2 md:gap-4 tracking-tighter">

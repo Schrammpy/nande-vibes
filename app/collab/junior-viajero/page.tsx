@@ -20,26 +20,37 @@ export default function JuniorCollabPage() {
     <main className="min-h-screen bg-black text-white">
       
       {/* --- 1. HERO HEADER (LA PORTADA) --- */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+     <section className="relative h-[70vh] flex items-end justify-center pb-12 md:pb-20 overflow-hidden">
+        
         <Image 
-          src="/hero-junior.jpg" // Asegurate de tener esta foto en public
+          src="/hero-junior.jpg"
           alt="Junior Viajero"
           fill
-          className="object-cover opacity-50"
+          className="object-cover" // Sacamos la opacidad general para que la foto brille más
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60"></div>
         
-        <div className="relative z-10 text-center px-4">
-          <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider mb-4 inline-block animate-pulse">
+        {/* DEGRADADO: Fundamental para que el texto blanco se lea sobre el fondo */}
+        {/* Va desde negro sólido abajo (100%) hasta transparente arriba */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+        
+        {/* CONTENIDO: Centrado y ancho completo */}
+        <div className="relative z-10 text-center w-full px-4 max-w-5xl mx-auto">
+          
+          <span className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-wider mb-4 inline-block animate-pulse shadow-lg">
             Colaboración Oficial
           </span>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white drop-shadow-xl mb-2">
-            JUNIOR VIAJERO
+          
+          {/* Título Gigante */}
+          <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-white drop-shadow-2xl mb-2 leading-none uppercase">
+            Junior Viajero
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-widest">
+          
+          {/* Subtítulo */}
+          <p className="text-xl md:text-3xl text-orange-500 font-bold tracking-widest mt-2 drop-shadow-md">
             x ÑANDE VIBES
           </p>
+
         </div>
       </section>
 
@@ -63,7 +74,7 @@ export default function JuniorCollabPage() {
           {/* Foto de Perfil / Lifestyle */}
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-gray-800 rotate-2 transform hover:rotate-0 transition-all duration-500">
             <Image 
-              src="/junior-bio.jpg" // <--- Subí una foto vertical linda de él a public
+              src="/junior-bio.jpeg" // <--- Subí una foto vertical linda de él a public
               alt="Junior Viajero Retrato"
               fill
               className="object-cover"
