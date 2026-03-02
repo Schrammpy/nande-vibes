@@ -67,7 +67,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
   };
 
   const handleComprar = () => {
-    const telefono = "595981000000"; 
+    const telefono = "595992607802"; 
     const lineas = [
         "Hola Ñande Vibes! 👋",
         "",

@@ -24,26 +24,12 @@ const YoutubeIcon = () => (
 
 // --- CONFIGURACIÓN DE LOS SLIDES ---
 const slides = [
+  // --- SLIDE 1: AHORA ES JUNIOR VIAJERO (Prioridad) ---
   {
     id: 1,
-    bgImage: "/hero-banner.png",
-    subtitle: "NUEVA COLECCIÓN 2026",
-    renderTitle: () => (
-      <>
-        ÑANDE <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">VIBES</span>
-      </>
-    ),
-    altText: "Portada Principal Ñande Vibes",
-    desc: "\"Hecho para sentir Paraguay.\"",
-    btnText: "Ver las Colecciones",
-    btnLink: "#catalogo",
-    isCollab: false,
-    customContent: undefined // <--- Agregá esto por las dudas
-  },
-  
-  {
-    id: 2,
     bgImage: "/junior-banner.jpeg",
+    subtitle: "EDICIÓN LIMITADA",
+    // Título de Junior
     renderTitle: () => (
       <div className="flex flex-col items-center leading-tight w-full px-2">
         <div className="flex flex-wrap justify-center items-baseline gap-2 md:gap-4 tracking-tighter">
@@ -55,36 +41,43 @@ const slides = [
           <span className="text-red-600">JUNIOR</span>
           <div className="flex items-center gap-3">
             <span className="text-white">VIAJERO</span>
-            <div className="transform scale-125 mt-1 ml-2 cursor-pointer hover:scale-150 transition-transform">
-            <a 
-                href="https://www.youtube.com/@JuniorViajero" // <--- PONÉ EL LINK REAL DE SU CANAL
-                target="_blank" 
-                rel="noopener noreferrer"
-                title="Ir al canal de Junior Viajero"
-            >
-                <YoutubeIcon />
-            </a>
-          </div>
+            <div className="transform scale-110 mt-1">
+               <a href="https://www.youtube.com/@JuniorViajero" target="_blank" rel="noopener noreferrer">
+                  <YoutubeIcon />
+               </a>
+            </div>
           </div>
         </div>
       </div>
     ),
-    // AQUI ESTA EL CAMBIO:
-    // En lugar de un botón fijo, ponemos el reloj. 
-    // Nota: El componente Countdown devuelve NULL cuando termina, 
-    // así que podríamos hacer una lógica más compleja, pero para simplificar:
-    // Vamos a poner el reloj Y el botón, pero el botón dirá "Ver adelanto" por ahora.
-    
-    
-    // Usamos esto para renderizar el reloj ANTES del botón
-    customContent: <Countdown />, 
     altText: "Colaboración Junior Viajero",
-    btnText: "Ver Colaboración",
     desc: "Lanzamiento:",
+    
+    // EL RELOJ DEBE ESTAR ACÁ (Slide 1)
+    customContent: <Countdown />, 
+    
+    btnText: "Ver Colaboración", // O "Ver Adelanto" si sigue bloqueado
     btnLink: "/collab/junior-viajero",
     isCollab: true
+  },
+
+  // --- SLIDE 2: AHORA ES ÑANDE VIBES (Secundario) ---
+  {
+    id: 2,
+    bgImage: "/hero-banner.png",
+    subtitle: "NUEVA COLECCIÓN 2026",
+    renderTitle: () => (
+      <>
+        ÑANDE <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">VIBES</span>
+      </>
+    ),
+    altText: "Portada Principal Ñande Vibes",
+    desc: "\"Hecho para sentir Paraguay.\"",
+    customContent: undefined, // No lleva reloj
+    btnText: "Ver las colecciones",
+    btnLink: "#catalogo",
+    isCollab: false
   }
- 
 ];
 
 export function HeroCarousel() {

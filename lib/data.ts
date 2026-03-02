@@ -645,35 +645,118 @@ export const productos = [
   // --- COLECCIÓN: JUNIOR VIAJERO ---
   {
     id: 23,
-    nombre: "Remera 'YT Junior Viajero'",
+    nombre: "'JV + Mapa PY'",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "junior", // <--- ETIQUETA IMPORTANTE
-    imagen: "/productos/junior/juniorviajero.png",
-    slug: "juniorviajero",
-    variantes: [  ]
+    imagen: "/productos/junior/mapaback_black.png",
+    slug: "jv-mapa",
+    variantes: [
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/junior/mapaback_black.png",
+            "/productos/junior/jvfront_black.png"
+        ]
+      },
+      { 
+        color: "Verde", 
+        hex: "#006400",
+        
+        imagenes: [
+            "/productos/junior/mapaback_green.png",
+            "/productos/junior/jvfront_green.png"
+        ]
+      },
+      { 
+        color: "Gris", 
+        hex: "#808080",
+        
+        imagenes: [
+            "/productos/junior/mapaback_grey.png",
+            "/productos/junior/jvfront_grey.png"
+        ]
+      }
+    ]
   },
   {
     id: 24,
-    nombre: "Remera 'JV: QueLocura!'",
+    nombre: "'JV + Youtube'",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "junior", // <--- ETIQUETA IMPORTANTE
-    imagen: "/productos/junior/quelocura.png",
-    slug: "quelocura",
-    variantes: [  ]
+    imagen: "/productos/junior/grillaback_grey.png",
+    slug: "jv-youtube",
+    variantes: [
+      { 
+
+        color: "Gris", 
+        hex: "#808080",
+        imagenes: [
+            "/productos/junior/grillaback_grey.png",
+            "/productos/junior/jvfront_grey.png"
+        ]
+        
+      },
+      { 
+        color: "Verde", 
+        hex: "#006400",
+        
+        imagenes: [
+            "/productos/junior/grillaback_green.png",
+            "/productos/junior/jvfront_green.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/junior/grillaback_black.png",
+            "/productos/junior/jvfront_black.png"
+        ]
+      }
+    ]
   },
   {
     id: 25,
-    nombre: "Remera 'JV: Jahata'",
+    nombre: "'JV + Descubramos PY'",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "junior", // <--- ETIQUETA IMPORTANTE
-    imagen: "/productos/junior/jahata.png",
-    slug: "jahata",
-    variantes: [  ]
+    imagen: "/productos/junior/descubramosback_green.png",
+    slug: "jv-descubramos",
+    variantes: [
+      { 
+
+        color: "Verde", 
+        hex: "#006400",
+        imagenes: [
+            "/productos/junior/descubramosback_green.png",
+            "/productos/junior/jvfront_green.png"
+        ]
+        
+      },
+      { 
+        color: "Gris", 
+        hex: "#808080",
+        
+        imagenes: [
+            "/productos/junior/descubramosback_grey.png",
+            "/productos/junior/jvfront_grey.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/junior/descubramosback_black.png",
+            "/productos/junior/jvfront_black.png"
+        ]
+      }
+    ]
   },
 ];

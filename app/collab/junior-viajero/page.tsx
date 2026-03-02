@@ -10,6 +10,9 @@ export default function JuniorCollabPage() {
   const { currency } = useCurrencyStore();
 
   const TARGET_DATE = new Date('2026-03-06T20:00:00').getTime();
+  // CAMBIO TEMPORAL: Fecha vieja
+  //const TARGET_DATE = new Date('2024-01-01T00:00:00').getTime();
+
   const now = new Date().getTime();
   const isLaunched = now >= TARGET_DATE; // True si ya pasó la fecha
   
