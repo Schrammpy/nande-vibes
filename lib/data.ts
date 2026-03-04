@@ -108,32 +108,6 @@ export const productos = [
       }
     ]
   },
-   {
-    id: 21,
-    nombre: "Valentine's Day: 'Oparei' ",
-    precio: 110000,
-    precioAntes: '',
-    precioEUR: 27.90,
-    categoria: "hype",
-    imagen: "/productos/hype/oparei1.png",
-    slug: "remera-oparei",
-    variantes: [
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF",
-        imagenes: [
-            "/productos/hype/oparei1.png"
-        ]
-      },
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/hype/oparei2.png"
-        ]
-      }
-    ]
-  },
   {
     id: 4,
     nombre: "UPD Promo 2026",
@@ -424,15 +398,21 @@ export const productos = [
     precioAntes: '',
     precioEUR: 24.90,
     categoria: "raices",
-    imagen: "/productos/raices/abuela_memby1.png",
+    imagen: "/productos/raices/abuela_membyv1.png",
     slug: "remera-abuelamemby",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/raices/abuela_memby1.png",
-            "/productos/raices/abuela_memby2.png"
+            "/productos/raices/abuela_membyv1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/abuela_membyv2.png"
         ]
       }
     ]
@@ -508,7 +488,32 @@ export const productos = [
       }
     ]
   },
-
+  {
+    id: 21,
+    nombre: "Valentine's Day: 'Oparei' ",
+    precio: 110000,
+    precioAntes: '',
+    precioEUR: 27.90,
+    categoria: "raices",
+    imagen: "/productos/raices/oparei1.png",
+    slug: "remera-oparei",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/oparei1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/oparei2.png"
+        ]
+      }
+    ]
+  },
 
   // --- COLECCIÓN: ICONOS ---
   {
@@ -645,7 +650,7 @@ export const productos = [
   // --- COLECCIÓN: JUNIOR VIAJERO ---
   {
     id: 23,
-    nombre: "'JV + Mapa PY'",
+    nombre: "Junior Viajero Oficial",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
@@ -683,7 +688,7 @@ export const productos = [
   },
   {
     id: 24,
-    nombre: "'JV + Youtube'",
+    nombre: "JV: Rincones del Paraguay",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
@@ -722,7 +727,7 @@ export const productos = [
   },
   {
     id: 25,
-    nombre: "'JV + Descubramos PY'",
+    nombre: "JV: Descubramos PY",
     precio: 130000,
     precioAntes: '',
     precioEUR: 29.90,
