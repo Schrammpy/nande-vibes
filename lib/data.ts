@@ -108,6 +108,7 @@ export const productos = [
       }
     ]
   },
+  /* --- PRODUCTO DESCATALOGADO (Guardado por si acaso) ---
   {
     id: 4,
     nombre: "UPD Promo 2026",
@@ -181,6 +182,7 @@ export const productos = [
       }
     ]
   },
+   --- FIN --- */
 
   // --- COLECCIÓN: RAICES ---
   {
@@ -235,6 +237,59 @@ export const productos = [
       }
     ]
   },
+  
+  {
+    id: 18,
+    nombre: "Remera 'Abuela Memby'",
+    precio: 110000,
+    precioAntes: '',
+    precioEUR: 24.90,
+    categoria: "raices",
+    imagen: "/productos/raices/abuela_membyv1.png",
+    slug: "remera-abuelamemby",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/abuela_membyv1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/abuela_membyv2.png"
+        ]
+      }
+    ]
+  },
+  {
+    id: 21,
+    nombre: "Remera 'Oparei' ",
+    precio: 110000,
+    precioAntes: '',
+    precioEUR: 27.90,
+    categoria: "raices",
+    imagen: "/productos/raices/oparei2.png",
+    slug: "remera-oparei",
+    variantes: [
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/oparei2.png"
+        ]
+      },
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/oparei1.png"
+        ]
+      }
+    ]
+  },
   {
     id: 7,
     nombre: "Remera 'Sopa vs Chipa Guazu'",
@@ -262,29 +317,55 @@ export const productos = [
     ]
   },
   {
+    id: 16,
+    nombre: "Remera 'Ñande símbolos'",
+    precio: 100000,
+    precioAntes: 120000,
+    precioEUR: 24.90,
+    categoria: "raices",
+    imagen: "/productos/raices/simbolos1.png",
+    slug: "remera-simbolos",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/simbolos1.png",
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/simbolos2.png"
+        ]
+      }
+    ]
+  },
+  {
     id: 8,
     nombre: "Remera 'Terere pantano'",
     precio: 120000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "raices",
-    imagen: "/productos/raices/terere_front2.png",
+    imagen: "/productos/raices/terere_front1.png",
     slug: "remera-tererepantano",
     variantes: [
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/raices/terere_front2.png",
-            "/productos/raices/terere_back2.png"
-        ]
-      },
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
             "/productos/raices/terere_front1.png",
             "/productos/raices/terere_back1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/terere_front2.png",
+            "/productos/raices/terere_back2.png"
         ]
       }
     ]
@@ -323,17 +404,9 @@ export const productos = [
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "raices",
-    imagen: "/productos/raices/guacamayo_front1.png",
+    imagen: "/productos/raices/guacamayo_front2.png",
     slug: "remera-guaapyta",
     variantes: [
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF",
-        imagenes: [
-            "/productos/raices/guacamayo_front1.png",
-            "/productos/raices/guacamayo_back1.png"
-        ]
-      },
       { 
         color: "Negro", 
         hex: "#000000",
@@ -341,6 +414,14 @@ export const productos = [
         imagenes: [
             "/productos/raices/guacamayo_front2.png",
             "/productos/raices/guacamayo_back2.png"
+        ]
+      },
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/raices/guacamayo_front1.png",
+            "/productos/raices/guacamayo_back1.png"
         ]
       }
     ]
@@ -365,80 +446,28 @@ export const productos = [
       }
     ]
   },
-  {
-    id: 16,
-    nombre: "Remera 'Ñande símbolos'",
-    precio: 100000,
-    precioAntes: 120000,
-    precioEUR: 24.90,
-    categoria: "raices",
-    imagen: "/productos/raices/simbolos1.png",
-    slug: "remera-simbolos",
-    variantes: [
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF",
-        imagenes: [
-            "/productos/raices/simbolos1.png",
-        ]
-      },
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/raices/simbolos2.png"
-        ]
-      }
-    ]
-  },
-  {
-    id: 18,
-    nombre: "Remera 'Abuela Memby'",
-    precio: 110000,
-    precioAntes: '',
-    precioEUR: 24.90,
-    categoria: "raices",
-    imagen: "/productos/raices/abuela_membyv1.png",
-    slug: "remera-abuelamemby",
-    variantes: [
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF",
-        imagenes: [
-            "/productos/raices/abuela_membyv1.png"
-        ]
-      },
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/raices/abuela_membyv2.png"
-        ]
-      }
-    ]
-  },
     {
     id: 19,
-    nombre: "Remera 'Ka'u Argel'",
+    nombre: "Remera 'Ka'u Romántico'",
     precio: 110000,
     precioAntes: '',
     precioEUR: 24.90,
     categoria: "raices",
-    imagen: "/productos/raices/kau_argel2.png",
-    slug: "remera-kauargel",
+    imagen: "/productos/raices/kau_romantico2.png",
+    slug: "remera-kauromantico",
     variantes: [
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/raices/kau_argel2.png"
+            "/productos/raices/kau_romantico2.png"
         ]
       },
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/raices/kau_argel1.png"
+            "/productos/raices/kau_romantico1.png"
         ]
       }
     ]
@@ -450,19 +479,29 @@ export const productos = [
     precioAntes: '',
     precioEUR: 24.90,
     categoria: "raices",
-    imagen: "/productos/raices/letrada.png",
+    imagen: "/productos/raices/letrada1.png",
     slug: "remera-letrado",
     variantes: [
       { 
         color: "Blanco", 
         hex: "#FFFFFF",
         imagenes: [
-            "/productos/raices/letrada.png",
-            "/productos/raices/letrado.png"
+            "/productos/raices/letrada1.png",
+            "/productos/raices/letrado1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/raices/letrada2.png",
+            "/productos/raices/letrado2.png"
         ]
       }
     ]
   },
+    /* --- PRODUCTO DESCATALOGADO (Guardado por si acaso) ---
+
   {
     id: 22,
     nombre: "Remera 'Rova'atâ'",
@@ -488,32 +527,7 @@ export const productos = [
       }
     ]
   },
-  {
-    id: 21,
-    nombre: "Valentine's Day: 'Oparei' ",
-    precio: 110000,
-    precioAntes: '',
-    precioEUR: 27.90,
-    categoria: "raices",
-    imagen: "/productos/raices/oparei1.png",
-    slug: "remera-oparei",
-    variantes: [
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF",
-        imagenes: [
-            "/productos/raices/oparei1.png"
-        ]
-      },
-      { 
-        color: "Negro", 
-        hex: "#000000",
-        imagenes: [
-            "/productos/raices/oparei2.png"
-        ]
-      }
-    ]
-  },
+  --- FIN --- */
 
   // --- COLECCIÓN: ICONOS ---
   {
