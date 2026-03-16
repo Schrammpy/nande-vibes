@@ -42,6 +42,15 @@ export function PaypalButton({ amount, description, onSuccess }: Props) {
                 if (actions.order) {
                     const order = await actions.order.capture();
                     console.log("Pago exitoso:", order);
+
+
+                      // --- DISPARAR EVENTO DE COMPRA AL PÍXEL DE META ---
+                    // Esto le avisa a Facebook que el anuncio funcionó y cuánto ganaste
+                if (typeof window !== 'undefined' && (window as any).fbq) {
+                  (window as any).fbq('track', 'Purchase', { value: amount, currency: 'EUR' });
+                }
+
+
                     onSuccess();
                 }
               }}

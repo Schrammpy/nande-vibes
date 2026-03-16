@@ -51,7 +51,7 @@ const slides = [
       </div>
     ),
     altText: "Colaboración Junior Viajero",
-    desc: "Lanzamiento:",
+    desc: "\"Inspirado en la aventura y nuestra identidad\"",
     
     // EL RELOJ DEBE ESTAR ACÁ (Slide 1)
     customContent: <Countdown />, 

@@ -1,7 +1,8 @@
 // src/lib/data.ts
 
 export const productos = [
-  // --- COLECCIÓN: HYPE (Febrero) ---
+  // --- COLECCIÓN: HYPE (Marzo) ---
+   /* --- PRODUCTO DESCATALOGADO (Guardado por si acaso) ---
   {
     id: 1,
     nombre: "Valentine's Day: 'ANADIE' ",
@@ -108,7 +109,7 @@ export const productos = [
       }
     ]
   },
-  /* --- PRODUCTO DESCATALOGADO (Guardado por si acaso) ---
+ 
   {
     id: 4,
     nombre: "UPD Promo 2026",
@@ -184,6 +185,35 @@ export const productos = [
   },
    --- FIN --- */
 
+   {
+    id: 29,
+    nombre: "Remera 'Ultima Cena PY'",
+    precio: 120000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "hype",
+    imagen: "/productos/hype/ultimacenapy1.png",
+    slug: "remera-ultimacenapy",
+    variantes: [
+      { 
+        color: "Blanco", 
+        hex: "#FFFFFF",
+        imagenes: [
+            "/productos/hype/ultimacenapy1.png",
+            "/productos/hype/ultimacenapy1_1.png"
+        ]
+      },
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/ultimacenapy2.png",
+            "/productos/hype/ultimacenapy2_2.png"
+        ]
+      }
+    ]
+  },
+
   // --- COLECCIÓN: RAICES ---
   {
     id: 5,
@@ -191,7 +221,7 @@ export const productos = [
     precio: 110000,
     precioAntes: '',
     precioEUR: 27.90,
-    categoria: "raices",
+    categoria: "hype",
     imagen: "/productos/raices/sopa1.png",
     slug: "remera-teamsopa",
     variantes: [
@@ -217,7 +247,7 @@ export const productos = [
     precio: 110000,
     precioAntes: '',
     precioEUR: 27.90,
-    categoria: "raices",
+    categoria: "hype",
     imagen: "/productos/raices/chguazu2.png",
     slug: "remera-chipaguazu",
     variantes: [
@@ -243,8 +273,8 @@ export const productos = [
     nombre: "Remera 'Abuela Memby'",
     precio: 110000,
     precioAntes: '',
-    precioEUR: 24.90,
-    categoria: "raices",
+    precioEUR: 27.90,
+    categoria: "hype",
     imagen: "/productos/raices/abuela_membyv1.png",
     slug: "remera-abuelamemby",
     variantes: [
