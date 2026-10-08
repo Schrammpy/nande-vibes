@@ -38,9 +38,9 @@ const slides = [
           <span className="font-serif italic text-white opacity-80 text-4xl md:text-7xl">x</span>
         </div>
         <div className="flex flex-col md:flex-row items-center gap-0 md:gap-4 mt-2 tracking-tighter">
-          <span className="text-red-600">JUNIOR</span>
+          <span className="text-red-600">J</span>
           <div className="flex items-center gap-3">
-            <span className="text-white">VIAJERO</span>
+            <span className="text-white">V</span>
             <div className="transform scale-110 mt-1">
                <a href="https://www.youtube.com/@JuniorViajero" target="_blank" rel="noopener noreferrer">
                   <YoutubeIcon />
@@ -51,7 +51,7 @@ const slides = [
       </div>
     ),
     altText: "Colaboración Junior Viajero",
-    desc: "\"Inspirado en la aventura y nuestra identidad\"",
+    //desc: "\"Inspirado en la aventura y nuestra identidad\"",
     
     // EL RELOJ DEBE ESTAR ACÁ (Slide 1)
     customContent: <Countdown />, 

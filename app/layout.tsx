@@ -9,30 +9,47 @@ import { Footer } from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nandevibes.com.py"),
+
   title: {
-    default: "Ñande Vibes | Identidad Paraguaya",
-    template: "%s | Ñande Vibes"
+    default: "Ñande Vibes | Remeras y Ropa Urbana Paraguaya",
+    template: "%s | Ñande Vibes",
   },
-  description: "Marca de ropa urbana con identidad paraguaya. Diseños exclusivos inspirados en nuestra cultura, estampados premium DTF y personalizados. Envíos a todo Paraguay.",
-  keywords: ["remeras paraguay", "streetwear asuncion", "ropa urbana", "diseño paraguayo", "ñande vibes", "remeras personalizadas"],
+
+  description:
+    "Descubrí remeras originales y ropa urbana con identidad paraguaya. Diseños exclusivos, cultura, humor y remeras personalizadas. Envíos a todo Paraguay.",
+
   authors: [{ name: "Ñande Vibes" }],
+
   openGraph: {
-    title: "Ñande Vibes | Hecho para sentir Paraguay",
-    description: "La nueva era de la identidad nacional. Calidad premium y diseños únicos.",
-    url: "https://www.nandevibes.com.py", // Cuando tengas el dominio activo
+    title: "Ñande Vibes | Remeras con Identidad Paraguaya",
+    description:
+      "Remeras originales, diseños exclusivos y ropa urbana inspirada en Paraguay. Conocé nuestras colecciones.",
+    url: "https://nandevibes.com.py",
     siteName: "Ñande Vibes",
     images: [
       {
-        url: "/hero-banner.png", // La foto que saldrá al compartir en WhatsApp
+        url: "/hero-banner.png",
         width: 1200,
         height: 630,
+        alt: "Ñande Vibes - Remeras y ropa urbana paraguaya",
       },
     ],
     locale: "es_PY",
     type: "website",
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Ñande Vibes | Remeras con Identidad Paraguaya",
+    description:
+      "Remeras originales y ropa urbana inspirada en la cultura paraguaya.",
+    images: ["/hero-banner.png"],
+  },
 };
+
 
 export default function RootLayout({
   children,
