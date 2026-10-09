@@ -186,29 +186,21 @@ export const productos = [
    --- FIN --- */
 
    {
-    id: 29,
-    nombre: "Remera 'Ultima Cena PY'",
+    id: 30,
+    nombre: "Remera 'Halloween: Luison'",
     precio: 120000,
     precioAntes: '',
     precioEUR: 29.90,
     categoria: "",
-    imagen: "/productos/hype/ultimacenapy1.png",
-    slug: "remera-ultimacenapy",
+    imagen: "/productos/hype/luison_back.jpeg",
+    slug: "remera-luison",
     variantes: [
-      { 
-        color: "Blanco", 
-        hex: "#FFFFFF",
-        imagenes: [
-            "/productos/hype/ultimacenapy1.png",
-            "/productos/hype/ultimacenapy1_1.png"
-        ]
-      },
       { 
         color: "Negro", 
         hex: "#000000",
         imagenes: [
-            "/productos/hype/ultimacenapy2.png",
-            "/productos/hype/ultimacenapy2_2.png"
+            "/productos/hype/luison_back.jpeg",
+            "/productos/hype/luison_front.jpeg"
         ]
       }
     ]
