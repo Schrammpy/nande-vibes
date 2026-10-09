@@ -206,6 +206,48 @@ export const productos = [
     ]
   },
 
+  {
+    id: 31,
+    nombre: "Remera 'Halloween: Jasy Jatere'",
+    precio: 120000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "hype",
+    imagen: "/productos/hype/jasyjatere_back.jpeg",
+    slug: "remera-jasyjatere",
+    variantes: [
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/jasyjatere_back.jpeg",
+            "/productos/hype/jasyjatere_front.jpeg"
+        ]
+      }
+    ]
+  },
+   {
+    id: 32,
+    nombre: "Remera 'Halloween: Pombero'",
+    precio: 120000,
+    precioAntes: '',
+    precioEUR: 29.90,
+    categoria: "hype",
+    imagen: "/productos/hype/pombero_back.jpeg",
+    slug: "remera-pombero",
+    variantes: [
+      { 
+        color: "Negro", 
+        hex: "#000000",
+        imagenes: [
+            "/productos/hype/pombero_back.jpeg",
+            "/productos/hype/pombero_front.jpeg"
+        ]
+      }
+    ]
+  },
+
+
   // --- COLECCIÓN: RAICES ---
   {
     id: 5,
