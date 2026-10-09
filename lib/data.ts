@@ -191,7 +191,7 @@ export const productos = [
     precio: 120000,
     precioAntes: '',
     precioEUR: 29.90,
-    categoria: "",
+    categoria: "hype",
     imagen: "/productos/hype/luison_back.jpeg",
     slug: "remera-luison",
     variantes: [
