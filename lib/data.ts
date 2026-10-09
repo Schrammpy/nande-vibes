@@ -191,7 +191,7 @@ export const productos = [
     precio: 120000,
     precioAntes: '',
     precioEUR: 29.90,
-    categoria: "hype",
+    categoria: "",
     imagen: "/productos/hype/ultimacenapy1.png",
     slug: "remera-ultimacenapy",
     variantes: [
@@ -221,7 +221,7 @@ export const productos = [
     precio: 110000,
     precioAntes: '',
     precioEUR: 27.90,
-    categoria: "hype",
+    categoria: "",
     imagen: "/productos/raices/sopa1.png",
     slug: "remera-teamsopa",
     variantes: [
@@ -247,7 +247,7 @@ export const productos = [
     precio: 110000,
     precioAntes: '',
     precioEUR: 27.90,
-    categoria: "hype",
+    categoria: "",
     imagen: "/productos/raices/chguazu2.png",
     slug: "remera-chipaguazu",
     variantes: [
@@ -274,7 +274,7 @@ export const productos = [
     precio: 110000,
     precioAntes: '',
     precioEUR: 27.90,
-    categoria: "hype",
+    categoria: "",
     imagen: "/productos/raices/abuela_membyv1.png",
     slug: "remera-abuelamemby",
     variantes: [

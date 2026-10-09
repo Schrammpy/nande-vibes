@@ -29,7 +29,7 @@ export default function Home() {
         
         {/* SECCIÓN 1: HYPE */}
         <ProductSection
-            title="⚡ HYPE Marzo" 
+            title="⚡ Ñande Mitos (Proximamente)" 
             products={hypeProducts} 
             categorySlug="hype" 
             currency={currency}
